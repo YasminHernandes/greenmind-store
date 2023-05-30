@@ -1,0 +1,58 @@
+@import '../../styles/_variables.scss';
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9.6rem;
+  padding: 1.6rem 9.6rem;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+  background-color: white;
+
+
+  .logo-header {
+    object-fit: cover;
+  }
+
+  .nav {
+    flex: 1;
+    .nav__list {
+      display: flex;
+      gap: 4.8rem;
+      
+      .nav__link {
+        font-size: 1.8rem;
+        color: $color-neutral-medium;
+        
+        &.active {
+          color: $color-neutral-default;
+        }
+      }
+    }
+  }
+
+  .header-column-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4.8rem;
+
+    .minicart-perfil-container {
+      border-right: 1px solid $color-neutral-dark;
+
+      .header-icon {
+        cursor: pointer;
+  
+        &:hover {
+          scale: 0;
+        }
+      }
+      .header-icon {
+        margin-right: 4.8rem;
+      }
+    }
+
+  }
+}
