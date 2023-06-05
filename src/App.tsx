@@ -1,4 +1,5 @@
 import { GlobalLayout } from './layouts'
+import { Outlet } from 'react-router-dom'
 
 import './App.scss'
 import './styles/global.scss'
@@ -8,7 +9,7 @@ function App() {
     <>
       <GlobalLayout>
         <main className="main">
-          
+          <Outlet/>
         </main>
       </GlobalLayout>
     </>
