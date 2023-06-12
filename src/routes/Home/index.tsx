@@ -12,7 +12,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Autoplay, Pagination } from 'swiper';
+import SwiperCore, { Autoplay } from 'swiper';
 
 import 'swiper/scss'
 import 'swiper/scss/autoplay'

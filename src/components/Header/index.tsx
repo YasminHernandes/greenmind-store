@@ -13,6 +13,7 @@ export const Header = () => {
   useEffect(() => {
     if (window.location.pathname == '/products') setActive('products')
     else if(window.location.pathname == '/contacts') setActive('contacts')
+    else setActive('home')
   }, [])
   
   return (
