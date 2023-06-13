@@ -4,17 +4,11 @@ import perfilIcon from 'assets/svg/perfil.svg'
 import settingsIcon from 'assets/svg/settings.svg'
 import './styles.scss'
 
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
-export const Header = () => {
-  const [active, setActive] = useState('home')
-
-  useEffect(() => {
-    if (window.location.pathname == '/products') setActive('products')
-    else if(window.location.pathname == '/contacts') setActive('contacts')
-    else setActive('home')
-  }, [])
+export const Header = (props: any) => {
+  const [ active ] = useState(props.activePath)
   
   return (
     <>

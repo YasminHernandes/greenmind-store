@@ -9,6 +9,7 @@ export default defineConfig({
       'components': path.resolve(__dirname, './src/components'),
       'assets': path.resolve(__dirname, './src/assets'),
       'pages': path.resolve(__dirname, './src/pages'),
+      'layouts': path.resolve(__dirname, './src/layouts'),
       'styles': path.resolve(__dirname, './src/styles'),
       'routes': path.resolve(__dirname, './src/routes'),
     }

@@ -17,6 +17,7 @@ import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/scss'
 import 'swiper/scss/autoplay'
 import './styles.scss'
+import { Header } from '../../components'
 
 export const Home = () => {
   type Product = {
@@ -33,17 +34,17 @@ export const Home = () => {
     axios.get('https://plantsapi.vercel.app')
     .then(response => response.data.data)
     .then(data => setProduct(data))
+    .catch(error => console.log(error))
   }
   
   useEffect(() => {
     getProducts()
   }, [])
 
-  console.log(person)
-
   SwiperCore.use([Autoplay])
   return (
     <>
+      <Header activePath="home"/>
       <section className="section hero-wrapper default-max-width-setup">
         <div className="container hero-container">
           <div className="hero-column-left">

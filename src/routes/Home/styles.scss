@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import 'styles/variables';
 
 // general
 .container {
@@ -295,61 +295,66 @@
     margin-bottom: 3rem;
   }
 
-  .swiper-wrapper {
-    .rates-card {
-      width: 800px!important;
-      height: 330px;
-      background: $color-primary;
-      border-radius: 12px;
-      padding: 3rem;
-  
-      .rates-card__text {
-        font-weight: 500;
-        font-size: 1.12rem;
-        line-height: 27px;
-        color: $color-neutral-dark;
-        margin-bottom: 3.4rem;
-      }
-      .rates-card-person-info {
-        display: flex;
-  
-        .quotes-icon {
-          height: max-content;
-        }
-  
-        .person-image {
-          border-radius: 50%;
-          position: relative;
-          left: -40px;
-          width: 128px;
-          height: 128px;
-        }
-  
-        .person-name {
-          font-weight: 700;
+  .swiper {
+    overflow: visible;
+    
+    .swiper-wrapper {
+      .rates-card {
+        width: 800px!important;
+        height: 330px;
+        background: $color-primary;
+        border-radius: 12px;
+        padding: 3rem;
+    
+        .rates-card__text {
+          font-weight: 500;
           font-size: 1.12rem;
           line-height: 27px;
-          display: flex;
-          flex-direction: column;
-  
-          .person-job {
-            font-weight: 500;
-            font-size: .75rem;
-            color: $color-neutral-medium;
-          }
+          color: $color-neutral-dark;
+          margin-bottom: 3.4rem;
         }
-  
-        .rates-value {
-          font-weight: 700;
-          font-size: 1.12rem;
-          height: max-content;
+        .rates-card-person-info {
           display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          gap: .75rem;
-          flex: 1;        
+    
+          .quotes-icon {
+            height: max-content;
+          }
+    
+          .person-image {
+            border-radius: 50%;
+            position: relative;
+            left: -40px;
+            width: 128px;
+            height: 128px;
+          }
+    
+          .person-name {
+            font-weight: 700;
+            font-size: 1.12rem;
+            line-height: 27px;
+            display: flex;
+            flex-direction: column;
+    
+            .person-job {
+              font-weight: 500;
+              font-size: .75rem;
+              color: $color-neutral-medium;
+            }
+          }
+    
+          .rates-value {
+            font-weight: 700;
+            font-size: 1.12rem;
+            height: max-content;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: .75rem;
+            flex: 1;        
+          }
         }
       }
     }
   }
+
 }
