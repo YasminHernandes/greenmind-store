@@ -1,5 +1,4 @@
 import heroImage from 'assets/svg/bg-hero.svg'
-import searchIcon from 'assets/svg/search-icon.svg'
 import arrowRight from 'assets/svg/arrow-right.svg'
 import plantIcon from 'assets/svg/plant-icon.svg'
 import boxIcon from 'assets/svg/box-icon.svg'
@@ -18,6 +17,7 @@ import 'swiper/scss'
 import 'swiper/scss/autoplay'
 import './styles.scss'
 import { Header } from '../../components'
+import { Search } from '../../components/Search'
 
 export const Home = () => {
   type Product = {
@@ -65,12 +65,7 @@ export const Home = () => {
                 </span>
               </span>
             </div>
-            <div className="input-search-container">
-              <input type="search" name="search" id="search" placeholder='What are you looking for?'/>
-              <button type='submit' className="button-search">
-                <img src={searchIcon} alt="search icon" />
-              </button>
-            </div>
+            <Search className="search-home" placeholder="What are you looking for?"/>
           </div>
           <img src={heroImage} alt="hero image" className='hero-image' />
         </div>
