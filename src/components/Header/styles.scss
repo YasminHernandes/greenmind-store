@@ -69,12 +69,12 @@
           margin-right: 3rem;
           
           &:hover {
-            scale: 1.2;
+            transform: scale(1.2);
           }
         }
       }
       .settings:hover {
-        scale: 1.2;
+        transform: scale(1.2);
       }
     }
   }
