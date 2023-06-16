@@ -1,14 +1,20 @@
-import { Header, Search, CategoryCard } from 'components';
+import { Header, Search, CategoryCard, Dropdown } from 'components';
 
 import artificialPlants from 'assets/png/artificial-plants.png'
 import naturalPlants from 'assets/png/natural-plants.png'
 import cactus from 'assets/png/cactus.png'
 import bonsai from 'assets/png/bonsai.png'
-import arrowDown from 'assets/svg/arrow-down.svg'
 
 import './styles.scss'
+import { ProductCard } from '../../components/ProductCard';
 export const Products = () => {  
-
+  const options = [
+    {value: "relevancy", label: "Relevancy"},
+    {value: "highest_to_lowest", label: "Price: Highest to Lowest"},
+    {value: "lowest_to_highest", label: "Price: Lowest to Highest"},
+    {value: "most_rated", label: "Most rated"},
+    {value: "bestsellers", label: "Best sellers"},
+  ]
   return (
     <>
       <Header activePath="products"/>
@@ -59,20 +65,16 @@ export const Products = () => {
                 </div>
               </div>
             </div>
-            <div className="products-card-container">
+            <div className="products-cards-container">
               <div className="products-count-and-sort">
                 <span className="products-count">Showed 30 items</span>
                 <span className="products-sort">
                   Sort by
-                  <select name="sort" id="sort" title="sort by" className="sort-by__select">
-                    <option value="relevancy" selected>Relevancy</option>
-                    <option value="price-highest-lowest">Price: highest to lowest</option>
-                    <option value="price-lowest-highest">Price: lowest to highest</option>
-                    <option value="most-rated">Most rated</option>
-                    <option value="best-sellers">Best sellers</option>
-                  </select>
-                  <img src={arrowDown} alt="arrow down" className="select__arrow" />
+                  <Dropdown placeholder="Relevancy" options={options}/>
                 </span>
+              </div>
+              <div className="products-cards">
+                <ProductCard/>
               </div>
             </div>
           </div>

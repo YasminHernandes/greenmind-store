@@ -47,7 +47,7 @@
 }
 
 .category {
-   margin: 3.9rem 0;
+   margin: 3.9rem 0 7rem;
   .category-wrapper {
     .category-cards-container {
       padding: 0 calc(6rem + 3rem);
@@ -134,7 +134,7 @@
         }
       }
 
-      .products-card-container {
+      .products-cards-container {
         flex: 1;
         .products-count-and-sort {
           display: flex;
@@ -152,26 +152,10 @@
             align-items: center;
             gap: 1rem;
 
-            .sort-by__select {
-              width: 220px;
-              appearance: none;
-              border: 1px solid $color-neutral-medium;
-              border-radius: 12px;
-              padding: .625rem;
-
-              &:focus {
-                outline: none;
-                border-color: $color-primary-medium;
-              }
-              &:focus ~ .select__arrow {
-                transform: rotate(180deg);
-              }
-            }
-            .select__arrow {
-              position: absolute;
-              right: 10px;
-            }
           }
+        }
+        .products-cards {
+          margin-top: 1.12rem;
         }
       }
     }

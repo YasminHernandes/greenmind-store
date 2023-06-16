@@ -6,12 +6,13 @@ import path from 'node:path'
 export default defineConfig({
   resolve: {
     alias: {
-      'components': path.resolve(__dirname, './src/components'),
       'assets': path.resolve(__dirname, './src/assets'),
-      'pages': path.resolve(__dirname, './src/pages'),
+      'components': path.resolve(__dirname, './src/components'),
+      'contexts': path.resolve(__dirname, './src/contexts'),
       'layouts': path.resolve(__dirname, './src/layouts'),
-      'styles': path.resolve(__dirname, './src/styles'),
       'routes': path.resolve(__dirname, './src/routes'),
+      'styles': path.resolve(__dirname, './src/styles'),
+      'types': path.resolve(__dirname, './src/types'),
     }
   },
   plugins: [react()],
