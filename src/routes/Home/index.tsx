@@ -5,10 +5,9 @@ import boxIcon from 'assets/svg/box-icon.svg'
 import phoneIcon from 'assets/svg/phone-icon.svg'
 import quotesIcon from 'assets/svg/quotes.svg'
 import starFill from 'assets/svg/starfill.svg'
+
 import { person } from 'assets/data'
 
-import axios from 'axios'
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay } from 'swiper';
@@ -16,30 +15,13 @@ import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/scss'
 import 'swiper/scss/autoplay'
 import './styles.scss'
-import { Header } from '../../components'
-import { Search } from '../../components/Search'
+import { Header, Search } from 'components'
+import { useApi } from 'hooks/useApi'
+import { Product } from 'types/product-types'
 
 export const Home = () => {
-  type Product = {
-    id: string;
-    name: string,
-    price: string,
-    img: string
-  }
-
-  const [product, setProduct] = useState<Product[]>([])
-  const newProduct = product.splice(0, 3)
-
-  const getProducts = () => {
-    axios.get('https://plantsapi.vercel.app')
-    .then(response => response.data.data)
-    .then(data => setProduct(data))
-    .catch(error => console.log(error))
-  }
-  
-  useEffect(() => {
-    getProducts()
-  }, [])
+  const { data: product } = useApi<Product[]>('https://plantsapi.vercel.app')
+  const newProduct = product!.splice(0, 3)
 
   SwiperCore.use([Autoplay])
   return (

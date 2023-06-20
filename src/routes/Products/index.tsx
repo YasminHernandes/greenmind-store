@@ -1,13 +1,28 @@
-import { Header, Search, CategoryCard, Dropdown } from 'components';
-
 import artificialPlants from 'assets/png/artificial-plants.png'
 import naturalPlants from 'assets/png/natural-plants.png'
 import cactus from 'assets/png/cactus.png'
 import bonsai from 'assets/png/bonsai.png'
+import banner from 'assets/png/banner-footer.png'
+import bannerStroke from 'assets/svg/banner-image-stroke.svg'
+
+import { 
+  Header,
+  Search,
+  CategoryCard,
+  Dropdown,
+  ProductCard,
+  SwiperProducts
+} from 'components';
+
+import { ProductType } from 'types/product-types';
+import { useApi } from 'hooks/useApi';
+import { SwiperSlide } from 'swiper/react';
 
 import './styles.scss'
-import { ProductCard } from '../../components/ProductCard';
+
 export const Products = () => {  
+  const { data: products } = useApi<ProductType[]>('https://plantsapi.vercel.app')
+
   const options = [
     {value: "relevancy", label: "Relevancy"},
     {value: "highest_to_lowest", label: "Price: Highest to Lowest"},
@@ -15,6 +30,8 @@ export const Products = () => {
     {value: "most_rated", label: "Most rated"},
     {value: "bestsellers", label: "Best sellers"},
   ]
+
+
   return (
     <>
       <Header activePath="products"/>
@@ -47,36 +64,80 @@ export const Products = () => {
       <section className="products">
         <div className="products-wrapper default-max-width-setup">
           <div className="products-content">
-            <div className="products-filter">
-              <h3 className="products-filter__title">Types</h3>
-              <Search className="search-types-products-wrapper" id="search-types-products" placeholder="Search by type"/>
-              <div className="types-options-container">
-                <div className="types-options">
-                  <input type="checkbox" name="type" id="type1" className="search-type__input" title="type"/>
-                  <label htmlFor="type" className="type__label">Cactus</label>
+            <div className="products-filter-and-cards">
+              <div className="products-filter">
+                <h3 className="products-filter__title">Types</h3>
+                <Search className="search-types-products-wrapper" id="search-types-products" placeholder="Search by type"/>
+                <div className="types-options-container">
+                  <div className="types-options">
+                    { products.map((product: ProductType) => (
+                      <div className="type-option" key={product.type}>
+                        <input type="checkbox" 
+                              name="type" 
+                              id={product.type} 
+                              className="search-type__input" 
+                              title={`type ${product.type}`}
+                        />
+                        <label htmlFor="type" className="type__label">{product.type.toUpperCase()}</label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="types-options">
-                  <input type="checkbox" name="type" id="type2" className="search-type__input" title="type" />
-                  <label htmlFor="type" className="type__label">Cactus</label>
+              </div>
+              <div className="products-cards-container">
+                <div className="products-count-and-sort">
+                  <span className="products-count">Showed 30 items</span>
+                  <span className="products-sort">
+                    Sort by
+                    <Dropdown placeholder="Relevancy" options={options}/>
+                  </span>
                 </div>
-                <div className="types-options">
-                  <input type="checkbox" name="type" id="type3" className="search-type__input" title="type"/>
-                  <label htmlFor="type" className="type__label">Cactus</label>
+                <div className="products-cards">
+                  { products.map((product: ProductType) => (
+                      <ProductCard key={product.id}
+                        title={product.name}
+                        type={product.type}
+                        price={product.price}
+                        sellingPrice={product.selling_price}
+                        img={product.img}
+                        soldOut={(product.sold_out === 'true') ? 'sold-out' : ''}
+                      />
+                    ))
+                  }
                 </div>
               </div>
             </div>
-            <div className="products-cards-container">
-              <div className="products-count-and-sort">
-                <span className="products-count">Showed 30 items</span>
-                <span className="products-sort">
-                  Sort by
-                  <Dropdown placeholder="Relevancy" options={options}/>
-                </span>
-              </div>
-              <div className="products-cards">
-                <ProductCard/>
-              </div>
+            <div className="products-best-sellers">
+              <h3 className="best-sellers__title">Best sellers</h3>
+              <SwiperProducts>
+                { products.map((product: ProductType) => (
+                  <SwiperSlide>
+                    <ProductCard key={product.id}
+                      title={product.name}
+                      type={product.type}
+                      price={product.price}
+                      sellingPrice={product.selling_price}
+                      img={product.img}
+                      soldOut={(product.sold_out === 'true') ? 'sold-out' : ''}
+                    />
+                  </SwiperSlide>
+                  ))
+                }
+              </SwiperProducts>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="banner">
+        <div className="banner-wrapper default-max-width-setup">
+          <div className="banner-content">
+            <h3 className="banner__title">
+              Transform 
+              <span className="banner__text">any environment into a natural and cozy haven with plants.</span>
+            </h3>
+            <img src={banner} alt="Banner footer image" className="banner-image" />
+            <img src={bannerStroke} alt="banner stroke" className="banner-stroke"/>
+            <img src={bannerStroke} alt="banner stroke" className="banner-stroke"/>
           </div>
         </div>
       </section>

@@ -1,9 +1,10 @@
 @import 'styles/variables';
 
 .product-card {
-  max-width: 260px;
+  width: 260px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 
   .product__image {
     width: 100%;

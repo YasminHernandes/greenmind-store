@@ -6,7 +6,17 @@ import {} from 'react'
 
 import './styles.scss'
 
-export const ProductCard = () => {
+type Props = {
+  title: string,
+  type: string, 
+  price: string, 
+  sellingPrice: string, 
+  img: string,
+  soldOut: string,
+
+}
+
+export const ProductCard = (props: Props) => {
   const CartIcon = () => {
     return (
       <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,18 +25,17 @@ export const ProductCard = () => {
     )
   }
 
-
   return (
     <div className="product-card">
-      <div className="tag">Sold out</div>
-      <img src={cactus} alt="" className="product__image"/>
+      <div className={`tag ${props.soldOut}`}>Sold out</div>
+      <img src={props.img} alt="" className="product__image"/>
       <div className="product-container__title">
-        <p className="product__title">Cacto</p>
-        <span className="product__type">cacto</span>
+        <p className="product__title">{props.title}</p>
+        <span className="product__type">{props.type}</span>
       </div>
       <div className="product-container__price">
-        <span className="product-price">US 24.00</span>
-        <span className="product-selling-price">US 18.00</span>
+        <span className="product-price">$ {props.price}</span>
+        <span className="product-selling-price">$ {props.sellingPrice}</span>
       </div>
       <button className="product-add-to-cart__button">
         <CartIcon/>
