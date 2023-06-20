@@ -14,7 +14,9 @@ export const Header = (props: any) => {
     <>
       <header className="header">
         <div className="header-wrapper default-max-width-setup">
-          <img className="logo-header" src={logoHeader} alt="" />
+          <a href="/" className="logo__link">
+            <img className="logo-header" src={logoHeader} alt="" />
+          </a>
           <nav className="nav">
             <ul className="nav__list">
               <li className="nav__item">
