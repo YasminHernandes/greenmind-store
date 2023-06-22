@@ -84,8 +84,8 @@
 
       }
       .best-selling-plants__button {
-        width: 168px;
-        height: 51px;
+        max-width: 160px;
+        height: 50px;
         padding: .75rem 1.5rem;
         display: flex;
         align-items: center;
@@ -93,10 +93,23 @@
         gap: 10px;
         background: $color-primary-default;
         border: none;
-        border-radius: 8px;
-        font-size: 1.12rem;
+        border-radius: 12px;
         font-weight: 500;
-        line-height: 27px;
+        font-size: 1rem;
+        color: $color-primary-dark;
+
+        &:hover {
+          opacity: .8;
+        }
+        &:active {
+          background: $color-primary-medium;
+          color: $color-neutral-whitef5;
+          opacity: 1;
+
+          svg path {
+            fill: $color-neutral-whitef5;
+          }
+        }
       }
     }
     .products-cards {
@@ -237,7 +250,16 @@
               gap: .6rem;
 
               &:hover {
-                transform: scale(1.1);
+                opacity: .8;
+              }
+              &:active {
+                background: $color-neutral-default;
+                color: white;
+                opacity: 1;
+
+                svg path {
+                  fill: white;
+                }
               }
             }
           }

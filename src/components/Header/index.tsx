@@ -31,11 +31,8 @@ export const Header = (props: any) => {
             </ul>
           </nav>
           <div className="header-column-right">
-            <div className="minicart-perfil-container">
               <img src={minicartIcon} alt="minicart icon" className="minicart header-icon" />
               <img src={perfilIcon} alt="perfil icon" className="perfil header-icon" />
-            </div>
-            <img src={settingsIcon} alt="" className="settings header-icon" />
           </div>
         </div>
       </header>

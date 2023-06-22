@@ -63,20 +63,12 @@
       justify-content: space-between;
       gap: 3rem;
   
-      .minicart-perfil-container {
-        border-right: 1px solid $color-neutral-dark;
-  
-        .header-icon {
-          cursor: pointer;
-          margin-right: 3rem;
-          
-          &:hover {
-            transform: scale(1.2);
-          }
+      .header-icon {
+        cursor: pointer;
+        
+        &:hover {
+          transform: scale(1.3);
         }
-      }
-      .settings:hover {
-        transform: scale(1.2);
       }
     }
   }
