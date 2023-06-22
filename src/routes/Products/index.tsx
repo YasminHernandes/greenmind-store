@@ -57,7 +57,6 @@ export const Products = () => {
             <CategoryCard img={naturalPlants} title="Natural Plants" />
             <CategoryCard img={cactus} title="Cactus" />
             <CategoryCard img={bonsai} title="Bonsai" />
-
           </div>
         </div>
       </section>
@@ -72,13 +71,16 @@ export const Products = () => {
                   <div className="types-options">
                     { products.map((product: ProductType) => (
                       <div className="type-option" key={product.type}>
-                        <input type="checkbox" 
+                        <label htmlFor="type" className="type__label">
+                          <input type="checkbox" 
                               name="type" 
                               id={product.type} 
                               className="search-type__input" 
                               title={`type ${product.type}`}
-                        />
-                        <label htmlFor="type" className="type__label">{product.type.toUpperCase()}</label>
+                            />
+                          {product.type.toUpperCase()}
+                          <span className="input-checkmark"></span>
+                        </label>
                       </div>
                     ))}
                   </div>

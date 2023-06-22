@@ -76,6 +76,7 @@
 
         .products-filter {
           width: 315px;
+
           .products-filter__title {
             width: 100%;
             font-weight: 500;
@@ -119,31 +120,55 @@
                 display: flex;
                 align-items: center;
                 gap: 1rem;
-  
-                .search-type__input {
-                  width: 30px;
-                  height: 30px; 
-                  appearance: none;
-                  position: relative;
-                  cursor: pointer;
-      
-                  &::before {
-                    content: '';
-                    width: 28px;
-                    height: 28px;
-                    position: absolute;
-                    top: -1px;
-                    border-radius: 8px;
-                    border: 1px solid $color-neutral-medium;
-                  }
-                  &:checked ~ ::before {
-                    background-color: aqua;
-                  }
-                }
+
                 .type__label {
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
                   font-weight: 500;
                   font-size: 1rem;
                   color: $color-neutral-dark;
+
+                  .search-type__input {
+                    width: 30px;
+                    height: 30px; 
+                    position: relative;
+                    opacity: 0;
+                    cursor: pointer;
+                    z-index: 99;
+
+                    &:checked ~ .input-checkmark {
+                      background-color: $color-primary-dark;
+                      border-color: $color-primary-dark;
+                    }
+
+                    &:checked ~ .input-checkmark::before {
+                      display: block;
+                    }
+                  }
+
+                  .input-checkmark {
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    border: 1px solid $color-neutral-medium;
+                    border-radius: 8px;
+
+                    &:before {
+                      content: "";
+                      display: none;
+                      position: absolute;
+                      top: 24%;
+                      left: 50%;
+                      width: 12px;
+                      height: 4px;
+                      border: solid white;
+                      border-width: 0 0 4px 4px;
+                      border-radius: 2px;
+                      transform: rotate(-38deg) translate(-50%, -50%);
+                    }
+                  }
+                
                 }
               }
             }
