@@ -34,11 +34,12 @@
       .hero-title {
         font-size: 4rem;
         font-weight: 800;
-        line-height: 64px;
+        line-height: 4rem;
+        color: $color-neutral-default;
       }
       .species-customers-container {
         display: flex;
-        margin: 1.5rem 0 3rem;
+        margin: 1.5rem 0 2rem;
   
         .species-values {
           border-right: 1px solid $color-neutral-default;
