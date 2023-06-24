@@ -10,7 +10,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: 6rem;
+      margin-bottom: 3rem;
     
       .footer-column-left {
         display: flex;
@@ -24,7 +24,7 @@
         .column-left__text {
           width: 190px;
           font-weight: 500;
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           color: $color-neutral-medium;
         }
   
@@ -49,14 +49,14 @@
         gap: 3rem;
         .footer__list {
           .list__title {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
           }
           .footer__link {
             .footer__item {
               width: max-content;
-              font-size: 1.2rem;
+              font-size: 1rem;
               color: $color-neutral-medium;
 
               &:hover {
@@ -74,7 +74,7 @@
     }
     .footer-lower-line {
       .footer-copyright {
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: $color-neutral-medium;
       }
     }

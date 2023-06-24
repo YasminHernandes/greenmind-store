@@ -87,7 +87,7 @@ export const Home = () => {
                   <div key={product.id} className="product-container">
                     <img src={product.img} alt="" className="product__image" />
                     <p className="product__name">{product.name}</p>
-                    <p className="product__price">${product.price}</p>
+                    <p className="product__price">${product.price.replace(',', '.')}</p>
                   </div>
                 )
               })

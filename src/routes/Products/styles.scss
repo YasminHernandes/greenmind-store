@@ -67,12 +67,11 @@
     .products-content {
       display: flex;
       flex-direction: column;
-      gap: 11.5rem;
+      gap: 6rem;
       
       .products-filter-and-cards {
         display: flex;
-        
-        gap: 3.75rem;
+        gap: 2rem;
 
         .products-filter {
           width: 315px;
@@ -180,11 +179,13 @@
           .products-count-and-sort {
             display: flex;
             align-items: center;
-            justify-content: space-between;          
+            justify-content: space-between;
+            position: relative;
+            z-index: 9;      
   
             .products-count, .products-sort {
               font-weight: 500;
-              font-size: 1.12rem;
+              font-size: 1rem;
               color: $color-neutral-dark;
             }
             .products-sort {
@@ -197,9 +198,9 @@
           }
           .products-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5.5rem 2.9rem;
-            margin-top: 1.12rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 1rem;
           }
         }
       }

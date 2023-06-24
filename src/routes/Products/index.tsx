@@ -99,8 +99,8 @@ export const Products = () => {
                       <ProductCard key={product.id}
                         title={product.name}
                         type={product.type}
-                        price={product.price}
-                        sellingPrice={product.selling_price}
+                        price={product.price.replace(',', '.')}
+                        sellingPrice={product.selling_price.replace(',', '.')}
                         img={product.img}
                         soldOut={(product.sold_out === 'true') ? 'sold-out' : ''}
                       />
@@ -117,8 +117,8 @@ export const Products = () => {
                     <ProductCard key={product.id}
                       title={product.name}
                       type={product.type}
-                      price={product.price}
-                      sellingPrice={product.selling_price}
+                      price={product.price.replace(',', '.')}
+                      sellingPrice={product.selling_price.replace(',', '.')}
                       img={product.img}
                       soldOut={(product.sold_out === 'true') ? 'sold-out' : ''}
                     />
