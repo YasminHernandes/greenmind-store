@@ -1,5 +1,4 @@
 import heroImage from 'assets/svg/bg-hero.svg'
-import arrowRight from 'assets/svg/arrow-right.svg'
 import plantIcon from 'assets/svg/plant-icon.svg'
 import boxIcon from 'assets/svg/box-icon.svg'
 import phoneIcon from 'assets/svg/phone-icon.svg'
@@ -11,13 +10,15 @@ import { person } from 'assets/data'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay } from 'swiper';
+import { Header, Search, ProductCard } from 'components'
+import { useApi } from 'hooks/useApi'
+import { Product } from 'types/product-types'
+import { ArrowRight } from './arrow-right'
 
 import 'swiper/scss'
 import 'swiper/scss/autoplay'
 import './styles.scss'
-import { Header, Search } from 'components'
-import { useApi } from 'hooks/useApi'
-import { Product } from 'types/product-types'
+
 
 export const Home = () => {
   const { data: product } = useApi<Product[]>('https://plantsapi.vercel.app')
@@ -25,20 +26,6 @@ export const Home = () => {
 
   SwiperCore.use([Autoplay])
 
-  type ArrowColorType = {
-    fillColor: string
-  }
-  const ArrowRight = ({fillColor}: ArrowColorType) => {
-    return (
-      <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" 
-          clip-rule="evenodd" 
-          d="M2 10.0001C2 9.8343 2.07902 9.67533 2.21967 9.55812C2.36032 9.44091 2.55109 9.37506 2.75 9.37506H20.4395L15.719 5.44256C15.5782 5.3252 15.4991 5.16603 15.4991 5.00006C15.4991 4.83409 15.5782 4.67492 15.719 4.55756C15.8598 4.4402 16.0508 4.37427 16.25 4.37427C16.4492 4.37427 16.6402 4.4402 16.781 4.55756L22.781 9.55756C22.8508 9.61561 22.9063 9.68458 22.9441 9.76052C22.9819 9.83645 23.0013 9.91785 23.0013 10.0001C23.0013 10.0823 22.9819 10.1637 22.9441 10.2396C22.9063 10.3155 22.8508 10.3845 22.781 10.4426L16.781 15.4426C16.6402 15.5599 16.4492 15.6258 16.25 15.6258C16.0508 15.6258 15.8598 15.5599 15.719 15.4426C15.5782 15.3252 15.4991 15.166 15.4991 15.0001C15.4991 14.8341 15.5782 14.6749 15.719 14.5576L20.4395 10.6251H2.75C2.55109 10.6251 2.36032 10.5592 2.21967 10.442C2.07902 10.3248 2 10.1658 2 10.0001Z" 
-          fill={fillColor}
-        />
-      </svg>
-    )
-  }
   return (
     <>
       <Header activePath="home"/>
@@ -80,15 +67,18 @@ export const Home = () => {
               <ArrowRight fillColor="#446969"/>
             </Link>
           </div>
-          <div className="products-cards">
+          <div className="home-products__cards">
             {
-              newProduct.map((product:any) => {
+              newProduct.map((product: Product) => {
                 return (
-                  <div key={product.id} className="product-container">
-                    <img src={product.img} alt="" className="product__image" />
-                    <p className="product__name">{product.name}</p>
-                    <p className="product__price">${product.price.replace(',', '.')}</p>
-                  </div>
+                  <ProductCard key={product.id}
+                  id={product.id}
+                  title={product.name}
+                  sellingPrice={product.selling_price.replace(',', '.')}
+                  img={product.img}
+                  soldOut={(product.sold_out === 'true') ? 'sold-out' : ''}
+                  hasButton={false}
+                />
                 )
               })
             }

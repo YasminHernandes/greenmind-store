@@ -114,13 +114,13 @@
         }
       }
     }
-    .products-cards {
+    .home-products__cards {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      .product-container {
+      .product-card {
         width: 300px;
         height: 436px;
         
@@ -131,15 +131,13 @@
           border-radius: 12px;
           
         }
-        .product__name, .product__price {
-          font-weight: 500;
-          font-size: 1rem;
-        }
-        .product__name {
-          margin: .75rem 0 .43rem;
-        }
-        .product__price {
-          color: $color-neutral-medium
+        .product-container__price {
+          margin-bottom: 0;
+          .product-selling-price {
+            font-weight: 500;
+            font-size: 1.12rem;
+            color: $color-neutral-medium
+          }
         }
       }
     }
@@ -160,6 +158,8 @@
     .about-us-content, .about-us__item {
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
       
       .about-us__item {
         width: 400px;
@@ -191,7 +191,7 @@
     }
     .about-us-content {
       width: 100%;
-      gap: 1.5rem;
+      gap: 2rem .7rem;
       margin-top: 3rem;
     }
   }
