@@ -1,14 +1,14 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home, Products, Contacts } from './routes'
+import { Home, CatalogProducts, Contacts } from './routes'
 
 const router = createBrowserRouter([
     {
         element: <App/>,
         children: [
             { path: '/',         element: <Home/> },
-            { path: '/products', element: <Products/> },
+            { path: '/products', element: <CatalogProducts/> },
             { path: '/contacts', element: <Contacts/> }
         ]
     }

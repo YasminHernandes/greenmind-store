@@ -1,3 +1,3 @@
 export { Home } from './Home'
-export { Products } from './Products'
+export { CatalogProducts } from './CatalogProducts'
 export { Contacts } from './Contacts'
