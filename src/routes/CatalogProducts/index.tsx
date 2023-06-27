@@ -4,6 +4,7 @@ import cactus from 'assets/png/cactus.png'
 import bonsai from 'assets/png/bonsai.png'
 import banner from 'assets/png/banner-footer.png'
 import bannerStroke from 'assets/svg/banner-image-stroke.svg'
+import './styles.scss'
 
 import { 
   Header,
@@ -17,8 +18,6 @@ import {
 import { ProductType } from 'types/product-types';
 import { useApi } from 'hooks/useApi';
 import { SwiperSlide } from 'swiper/react';
-import { useParams } from 'react-router-dom'
-import './styles.scss'
 import { useEffect, useState } from 'react'
 
 export const CatalogProducts = () => {  
@@ -27,16 +26,13 @@ export const CatalogProducts = () => {
 
   useEffect(() => {
     let arrayAux: string[] = [];
-    console.log(products);
     const typeProducts = products.map((item: ProductType) => item.type);
-    console.log(typeProducts);
     typeProducts.forEach((type: string) => {
       if (!arrayAux.includes(type)) {
         arrayAux.push(type);
       }
     });
-    console.log(arrayAux);
-  setProductsFiltered(arrayAux)
+    setProductsFiltered(arrayAux)
   }, [products])
 
   const options = [
@@ -46,9 +42,6 @@ export const CatalogProducts = () => {
     {value: "most_rated", label: "Most rated"},
     {value: "bestsellers", label: "Best sellers"},
   ]
-
-  const params = useParams()
-  console.log('params: ', params)
 
   return (
     <>
