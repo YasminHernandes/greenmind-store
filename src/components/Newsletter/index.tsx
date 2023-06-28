@@ -1,4 +1,4 @@
-import emailIcon from 'assets/svg/email-icon.svg'
+import emailIcon from '@/assets/svg/email-icon.svg'
 
 import './styles.scss'
 export const Newsletter = () => {

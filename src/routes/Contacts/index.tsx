@@ -1,9 +1,9 @@
-import { Header } from "components"
+import { Header } from "@/components"
 
-import mapIcon from 'assets/svg/map-icon.svg'
-import phoneIcon from 'assets/svg/phone-contact-icon.svg'
-import emailIcon from 'assets/svg/email-contact-icon.svg'
-import hoursIcon from 'assets/svg/hours-icon.svg'
+import mapIcon from '@/assets/svg/map-icon.svg'
+import phoneIcon from '@/assets/svg/phone-contact-icon.svg'
+import emailIcon from '@/assets/svg/email-contact-icon.svg'
+import hoursIcon from '@/assets/svg/hours-icon.svg'
 
 import './styles.scss'
 export const Contacts = () => {

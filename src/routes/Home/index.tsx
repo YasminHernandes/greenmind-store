@@ -1,18 +1,18 @@
-import heroImage from 'assets/svg/bg-hero.svg'
-import plantIcon from 'assets/svg/plant-icon.svg'
-import boxIcon from 'assets/svg/box-icon.svg'
-import phoneIcon from 'assets/svg/phone-icon.svg'
-import quotesIcon from 'assets/svg/quotes.svg'
-import starFill from 'assets/svg/starfill.svg'
+import heroImage from '@/assets/svg/bg-hero.svg'
+import plantIcon from '@/assets/svg/plant-icon.svg'
+import boxIcon from '@/assets/svg/box-icon.svg'
+import phoneIcon from '@/assets/svg/phone-icon.svg'
+import quotesIcon from '@/assets/svg/quotes.svg'
+import starFill from '@/assets/svg/starfill.svg'
 
-import { person } from 'assets/data'
+import { person } from '@/assets/data'
 
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay } from 'swiper';
-import { Header, Search, ProductCard } from 'components'
-import { useApi } from 'hooks/useApi'
-import { Product } from 'types/product-types'
+import { Header, Search, ProductCard } from '@/components'
+import { useApi } from '@/hooks/useApi'
+import { Product } from '@/types/product-types'
 import { ArrowRight } from './arrow-right'
 
 import 'swiper/scss'

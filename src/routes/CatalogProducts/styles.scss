@@ -1,4 +1,4 @@
-@import 'styles/variables';
+@import '@/styles/variables';
 
 .hero {
   .hero-wrapper {
@@ -6,7 +6,7 @@
 
     .hero-content {
       padding: 3.75rem 4.5rem;
-      background-image: url('assets/png/products-hero.png');
+      background-image: url('@/assets/png/products-hero.png');
       border-radius: 1.5rem;
 
       .hero-content-wrapper {

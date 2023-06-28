@@ -1,5 +1,5 @@
 
-import arrowDown from 'assets/svg/arrow-down.svg'
+import arrowDown from '@/assets/svg/arrow-down.svg'
 
 import './style.scss'
 import { useEffect, useRef, useState } from 'react'

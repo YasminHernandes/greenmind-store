@@ -1,4 +1,4 @@
-import { GlobalLayout } from 'layouts/global'
+import { GlobalLayout } from '@/layouts/global'
 import { Outlet } from 'react-router-dom'
 
 import './App.scss'

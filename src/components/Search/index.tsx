@@ -1,4 +1,4 @@
-import searchIcon from 'assets/svg/search-icon.svg'
+import searchIcon from '@/assets/svg/search-icon.svg'
 
 import './styles.scss'
 

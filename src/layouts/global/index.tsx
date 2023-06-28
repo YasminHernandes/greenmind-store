@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { Newsletter, Footer } from "components"
+import { Newsletter, Footer } from "@/components"
 
 type Props = {
   children: ReactNode,

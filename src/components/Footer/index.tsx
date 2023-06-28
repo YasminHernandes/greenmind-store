@@ -1,7 +1,7 @@
-import logoFooter from 'assets/svg/logo.svg'
-import facebookIcon from 'assets/svg/facebook-icon.svg'
-import instagramIcon from 'assets/svg/instagram-icon.svg'
-import twitterIcon from 'assets/svg/twitter-icon.svg'
+import logoFooter from '@/assets/svg/logo.svg'
+import facebookIcon from '@/assets/svg/facebook-icon.svg'
+import instagramIcon from '@/assets/svg/instagram-icon.svg'
+import twitterIcon from '@/assets/svg/twitter-icon.svg'
 
 import './styles.scss'
 
