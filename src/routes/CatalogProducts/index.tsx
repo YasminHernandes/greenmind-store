@@ -1,9 +1,9 @@
-import artificialPlants from 'assets/png/artificial-plants.png'
-import naturalPlants from 'assets/png/natural-plants.png'
-import cactus from 'assets/png/cactus.png'
-import bonsai from 'assets/png/bonsai.png'
-import banner from 'assets/png/banner-footer.png'
-import bannerStroke from 'assets/svg/banner-image-stroke.svg'
+import artificialPlants from '@/assets/png/artificial-plants.png'
+import naturalPlants from '@/assets/png/natural-plants.png'
+import cactus from '@/assets/png/cactus.png'
+import bonsai from '@/assets/png/bonsai.png'
+import banner from '@/assets/png/banner-footer.png'
+import bannerStroke from '@/assets/svg/banner-image-stroke.svg'
 import './styles.scss'
 
 import { 
@@ -12,20 +12,31 @@ import {
   CategoryCard,
   Dropdown,
   ProductCard,
-  SwiperCatalogProducts
-} from 'components';
+  SwiperCatalogProducts,
+  AddToCart
+} from '@/components';
 
-import { ProductType } from 'types/product-types';
-import { useApi } from 'hooks/useApi';
 import { SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react'
+import { ProductType } from '@/types/product-types';
+import { SortByType } from '@/types/sort-by-type'
+import { useApi } from '@/hooks/useApi'
 
 export const CatalogProducts = () => {  
   const { data: products } = useApi<ProductType[]>('https://plantsapi.vercel.app');
-  let [productsFiltered, setProductsFiltered] = useState<string[]>([]);
+
+  const [productsFiltered, setProductsFiltered] = useState<string[]>([]);
+  
+  const options = [
+    { value: SortByType.RELEVANCY, label: SortByType.RELEVANCY },
+    { value: SortByType.HIGHEST_TO_LOWEST, label: SortByType.HIGHEST_TO_LOWEST },
+    { value: SortByType.LOWEST_TO_HIGHEST, label: SortByType.LOWEST_TO_HIGHEST },
+    { value: SortByType.MOST_RATED, label: SortByType.MOST_RATED },
+    { value: SortByType.BESTSELLERS, label: SortByType.BESTSELLERS }
+  ]
 
   useEffect(() => {
-    let arrayAux: string[] = [];
+    const arrayAux: string[] = [];
     const typeProducts = products.map((item: ProductType) => item.type);
     typeProducts.forEach((type: string) => {
       if (!arrayAux.includes(type)) {
@@ -35,14 +46,7 @@ export const CatalogProducts = () => {
     setProductsFiltered(arrayAux)
   }, [products])
 
-  const options = [
-    {value: "relevancy", label: "Relevancy"},
-    {value: "highest_to_lowest", label: "Price: Highest to Lowest"},
-    {value: "lowest_to_highest", label: "Price: Lowest to Highest"},
-    {value: "most_rated", label: "Most rated"},
-    {value: "bestsellers", label: "Best sellers"},
-  ]
-
+  
   return (
     <>
       <Header activePath="products"/>
@@ -111,8 +115,8 @@ export const CatalogProducts = () => {
                         id={product.id}
                         title={product.name}
                         type={product.type}
-                        price={product.price.replace(',', '.')}
-                        sellingPrice={product.selling_price.replace(',', '.')}
+                        price={product.price}
+                        sellingPrice={product.selling_price}
                         img={product.img}
                         soldOut={(product.sold_out === 'true') ? 'sold-out' : ''}
                         hasButton={true}
@@ -127,13 +131,16 @@ export const CatalogProducts = () => {
               <SwiperCatalogProducts>
                 { products.map((product: ProductType) => (
                   <SwiperSlide>
-                    <ProductCard key={product.id}
+                    <ProductCard 
+                      id={product.id}
+                      key={product.id}
                       title={product.name}
                       type={product.type}
                       price={product.price.replace(',', '.')}
                       sellingPrice={product.selling_price.replace(',', '.')}
                       img={product.img}
                       soldOut={(product.sold_out === 'true') ? 'sold-out' : ''}
+                      hasButton={true}
                     />
                   </SwiperSlide>
                   ))
