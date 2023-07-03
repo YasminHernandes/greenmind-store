@@ -1,4 +1,6 @@
-import { AddToCart } from '@/components'
+import { useNavigate } from 'react-router-dom'
+
+import { AddToCart } from '../AddToCart'
 
 import './styles.scss'
 
@@ -14,11 +16,17 @@ type Props = {
 }
 
 export const ProductCard = (props: Props) => {
+  const navigate = useNavigate()
+
+  const handleNavigate = () => {
+    navigate(`/products/${props.id}`)
+  }
+
 
   return (
     <>
       <div className="product-card-container">
-        <div className="product-card" id={props.id}>
+        <div className="product-card" id={props.id} onClick={handleNavigate}>
           <div className={`tag ${props.soldOut}`}>Sold out</div>
           <img src={props.img} alt="" id={props.id} className="product__image"/>
           <div className="product-container__title" id={props.id}>
