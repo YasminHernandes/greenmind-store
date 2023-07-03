@@ -1,15 +1,20 @@
-import logoHeader from 'assets/svg/logo.svg'
-import minicartIcon from 'assets/svg/minicart.svg'
-import perfilIcon from 'assets/svg/perfil.svg'
-import settingsIcon from 'assets/svg/settings.svg'
-import './styles.scss'
+import logoHeader from '@/assets/svg/logo.svg'
+import minicartIcon from '@/assets/svg/minicart.svg'
+import perfilIcon from '@/assets/svg/perfil.svg'
 
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useCartControl } from '@/hooks/useCartControl'
+
+
+import './styles.scss'
 
 export const Header = (props: any) => {
   const [ active ] = useState(props.activePath)
-  
+  const addToCart = localStorage.getItem('add-to-cart') 
+
+  const { calculateTotalItems } = useCartControl()
+
   return (
     <>
       <header className="header">
@@ -31,8 +36,11 @@ export const Header = (props: any) => {
             </ul>
           </nav>
           <div className="header-column-right">
+            <div className="minicart-container">
               <img src={minicartIcon} alt="minicart icon" className="minicart header-icon" />
-              <img src={perfilIcon} alt="perfil icon" className="perfil header-icon" />
+              {addToCart == 'true' && <span className="count">{ calculateTotalItems() }</span>}
+            </div>
+          <img src={perfilIcon} alt="perfil icon" className="perfil header-icon" />
           </div>
         </div>
       </header>
