@@ -11,9 +11,9 @@ import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay } from 'swiper';
 import { Header, Search, ProductCard } from '@/components'
+import { ArrowRight } from '@/components/icons/arrowRight'
 import { useApi } from '@/hooks/useApi'
 import { Product } from '@/types/product-types'
-import { ArrowRight } from './arrow-right'
 
 import 'swiper/scss'
 import 'swiper/scss/autoplay'
