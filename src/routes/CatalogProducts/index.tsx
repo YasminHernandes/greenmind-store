@@ -13,7 +13,6 @@ import {
   Dropdown,
   ProductCard,
   SwiperCatalogProducts,
-  AddToCart
 } from '@/components';
 
 import { SwiperSlide } from 'swiper/react';
@@ -111,7 +110,7 @@ export const CatalogProducts = () => {
                 </div>
                 <div className="products__cards">
                   { products.map((product: ProductType) => (
-                      <ProductCard key={product.id}
+                      <ProductCard
                         id={product.id}
                         title={product.name}
                         type={product.type}
@@ -131,9 +130,8 @@ export const CatalogProducts = () => {
               <SwiperCatalogProducts>
                 { products.map((product: ProductType) => (
                   <SwiperSlide>
-                    <ProductCard 
+                    <ProductCard
                       id={product.id}
-                      key={product.id}
                       title={product.name}
                       type={product.type}
                       price={product.price.replace(',', '.')}
