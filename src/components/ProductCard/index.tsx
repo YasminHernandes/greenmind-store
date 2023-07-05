@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import { AddToCart } from '../AddToCart'
+import { AddToCart } from '@/components'
 
 import './styles.scss'
 

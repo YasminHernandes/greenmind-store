@@ -3,15 +3,18 @@ import { Outlet } from 'react-router-dom'
 
 import './App.scss'
 import './styles/global.scss'
+import { MinicartContextProvider } from './contexts/minicartContext'
 
 function App() {
   return (
     <>
-      <GlobalLayout>
-        <main className="main">
-          <Outlet/>
-        </main>
-      </GlobalLayout>
+        <MinicartContextProvider>
+          <GlobalLayout>
+              <main className="main">
+                <Outlet/>
+              </main>
+          </GlobalLayout>
+        </MinicartContextProvider>
     </>
   )
 }

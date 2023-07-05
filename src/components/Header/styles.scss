@@ -63,7 +63,7 @@
       justify-content: space-between;
       gap: 3rem;
   
-      .header-icon {
+      .perfil {
         cursor: pointer;
         
         &:hover {
@@ -73,6 +73,12 @@
 
       .minicart-container {
         position: relative;
+        cursor: pointer;
+        
+        &:hover {
+          transform: scale(1.3);
+        }
+
         .count {
           width: 24px;
           height: 24px;
