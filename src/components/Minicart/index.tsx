@@ -1,17 +1,17 @@
 import './styles.scss'
 
-import { MinicartIcon, TrashIcon, CloseIcon, MinusIcon, PlusIcon } from '@/components/icons'
+import { MinicartIcon, TrashIcon, CloseIcon } from '@/components/icons'
 import { ProductInCart } from '@/types/product-types'
 import { useMinicartContext } from '@/hooks/useMinicartContext'
 import { useEffect, useRef } from 'react'
+import { Count } from '@/components'
+import { Link } from 'react-router-dom'
 
 
 export const Minicart = () => {
   const cartItems = localStorage.getItem('cart-items')
   const cartItemsArray = JSON.parse(cartItems!)
-
-  const { minicart, toggleMinicart, Count, removeItem, Calculate, shipping, hasShipping } =  useMinicartContext()
-
+  const { minicart, toggleMinicart, removeItem, Calculate, shipping, hasShipping } =  useMinicartContext()
   const minicartRef = useRef<HTMLDivElement>(null)
   
   //!@YasminHernandes Fix this
@@ -25,15 +25,9 @@ export const Minicart = () => {
     return () => window.removeEventListener('click', handlerMinicartClose);
   }, [minicartRef])
 
-  const CountMinicart = ({id, quantity}: any) => {
-    return (
-      <div className="product-count__button" id={id}>
-        <MinusIcon onClick={() => Count.decreaseCount(Number(id))} />
-          { quantity }
-        <PlusIcon onClick={() => Count.increaseCount(Number(id))} /> 
-      </div>
-    )
-  }
+  useEffect(() => {
+    hasShipping()    
+  })
 
   return (
     <>
@@ -60,7 +54,7 @@ export const Minicart = () => {
                 </div>
                 <div className="trash-and-count-container">
                   <TrashIcon onClick={() => removeItem(product.id)} />
-                  <CountMinicart id={product.id} quantity={product.quantity}/>
+                  <Count id={product.id} quantity={product.quantity}/>
                 </div>
                 </li>
               ))}
@@ -76,7 +70,7 @@ export const Minicart = () => {
                 <span className="shipping__title">
                   Shipping
                   <span className="shipping__price">
-                    {shipping ? `$ ${hasShipping()}` : '--'}
+                    {shipping ? `$ ${hasShipping()}` : '$0'}
                   </span>
                 </span>
               </div>
@@ -86,7 +80,7 @@ export const Minicart = () => {
                     $ {Calculate.totalPrice()}
                   </span>
               </span>         
-              <button className="confirm-order__button">Confirm Order</button>
+              <Link to={'/checkout'} reloadDocument className="confirm-order__button">Confirm Order</Link>
             </div>
           </div>
           </> 

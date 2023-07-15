@@ -99,7 +99,6 @@
             .trash-icon {
               justify-content: flex-end;
             }
-            
             .product-count__button {
               width: 110px;
               max-width: 110px;
@@ -107,7 +106,8 @@
               padding: .5rem;
               border-radius: .5rem;
               font-size: .8rem;
-
+              margin-top: 1rem;
+            
               svg {
                 width: 18px;
                 height: 18px;
@@ -165,6 +165,7 @@
           background-color: $color-primary-dark;
           font-weight: 500;
           font-size: 1rem;
+          text-align: center;
           color: white; 
 
           &:hover {

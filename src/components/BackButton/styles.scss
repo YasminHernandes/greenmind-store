@@ -5,12 +5,12 @@
   .back__button {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
     background-color: transparent;
     font-weight: 500;
     font-size: 1.125rem;
     color: $color-primary-medium;
     margin: 0 6rem;
+    cursor: pointer;
   }
 }
