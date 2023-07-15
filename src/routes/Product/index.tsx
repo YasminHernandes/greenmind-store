@@ -20,8 +20,8 @@ export const Product = () => {
             <div className="product-container-title-price">
               <span className="product-type">{product?.type}</span>
               <h2 className="product-name">{product?.name}</h2>
-              <span className="product-price">{product?.price}</span>
-              <span className="product-selling-price">{product?.selling_price}</span>
+              <span className="product-price">${product?.price}</span>
+              <span className="product-selling-price">${product?.selling_price}</span>
             </div>
             <div className="product-container-description">
             <span className="product-description__title">Description</span>
