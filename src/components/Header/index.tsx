@@ -3,20 +3,18 @@ import logoHeader from '@/assets/svg/logo.svg'
 import minicartIcon from '@/assets/svg/minicart.svg'
 import perfilIcon from '@/assets/svg/perfil.svg'
 
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Minicart } from '@/components'
 import { useMinicartContext } from '@/hooks/useMinicartContext'
 
 
-export const Header = (props: any) => {
-  const [ active ] = useState(props.activePath)
+export const Header = () => {
+  const pathName = window.location.pathname.split('/').slice(-1)  
   const { minicart, toggleMinicart, Calculate } = useMinicartContext()
- 
   
   return (
     <>
-      <header className="header">
+      <header className={`header --${pathName}`}>
         <div className="header-wrapper default-max-width-setup">
           <a href="/" className="logo__link">
             <img className="logo-header" src={logoHeader} alt="" />
@@ -24,13 +22,31 @@ export const Header = (props: any) => {
           <nav className="nav">
             <ul className="nav__list">
               <li className="nav__item">
-                <Link to="/" className={`nav__link home ${active == 'home' ? 'active' : ''}`}>Home</Link>
+                <NavLink 
+                  to="/" 
+                  reloadDocument 
+                  className={({ isActive }) => `home nav__link ${isActive ? 'active' : ''}`}
+                  >
+                    Home
+                  </NavLink>
               </li>
               <li className="nav__item">
-                <Link to="/products" className={`nav__link products ${active == 'products' ? 'active' : ''}`}>Products</Link>
+                <NavLink 
+                  to="/products" 
+                  reloadDocument 
+                  className={({ isActive }) => `products nav__link ${isActive ? 'active' : ''}`}
+                  >
+                    Products
+                  </NavLink>
               </li>
               <li className="nav__item">
-                <Link to="/contacts" className={`nav__link contacts ${active == 'contacts' ? 'active' : ''}`}>Contacts</Link>
+                <NavLink 
+                  to="/contacts" 
+                  reloadDocument 
+                  className={({ isActive }) => `contacts nav__link ${isActive ? 'active' : ''}`}
+                  >
+                    Contacts
+                  </NavLink>
               </li>
             </ul>
           </nav>
