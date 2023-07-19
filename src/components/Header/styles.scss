@@ -30,7 +30,6 @@
   
     .nav {
       display: flex;
-      justify-content: center;
       flex: 1;
 
       .nav-container__mobile {
@@ -223,11 +222,6 @@
       }
     }
 
-    @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
-      gap: 1rem;
-      padding: 2rem 3rem;
-    }
-
     @media screen and (max-width: $breakpoint-mobile-max) {
       justify-content: space-between;
       gap: 0;
@@ -236,6 +230,7 @@
 
     @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max)  {
       gap: 1rem;
+      padding: 2rem 3rem;
     } 
   }
 }
