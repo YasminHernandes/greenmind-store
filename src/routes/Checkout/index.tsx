@@ -13,10 +13,10 @@ export const Checkout = () => {
 
   return (
     <>
-      <div className="checkout">
+      <div className="checkout-wrapper">
         <BackButton />
         <div className="default-max-width-setup">
-          <div className="checkout-wrapper">
+          <div className="checkout-container">
             <div className="cart-items">
               <h1 className='cart__title'>
               Cart

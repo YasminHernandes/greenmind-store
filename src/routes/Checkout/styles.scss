@@ -4,12 +4,12 @@
     display: none
 }
 
-.checkout {
+.checkout-wrapper {
   height: 100%;
   padding: 5rem 0 7.5rem;
   background: $color-neutral-whitef5;
 
-  .checkout-wrapper {
+  .checkout-container {
     display: flex;
     gap: 3rem;
     padding: 0 6rem;

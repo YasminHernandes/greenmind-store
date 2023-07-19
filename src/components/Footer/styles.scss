@@ -6,6 +6,11 @@
   
   .footer-wrapper {
     padding: 3rem 6rem;
+
+    @media screen and (max-width: $breakpoint-mobile-max) {
+      padding: 1.5rem;
+    }
+
     .footer-top-line {
       display: flex;
       align-items: flex-start;
@@ -26,6 +31,10 @@
           font-weight: 500;
           font-size: 1.2rem;
           color: $color-neutral-medium;
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            font-size: 0.875rem;
+          }
         }
   
         .network-container {
@@ -42,17 +51,26 @@
             }
           }
         }
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          gap: 1rem;
+        }
       }
   
       .footer-column-right {
         display: flex;
         gap: 3rem;
+
         .footer__list {
           .list__title {
             font-size: 1rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
+
+            @media screen and (max-width: $breakpoint-mobile-max) {
+              margin-bottom: 1rem;
+            }
           }
+
           .footer__link {
             .footer__item {
               width: max-content;
@@ -66,16 +84,32 @@
             &:not(:last-child) {
               display: flex;
               margin-bottom: 1.5rem;
+
+              @media screen and (max-width: $breakpoint-mobile-max) {
+                margin-bottom: 1rem;
+              }
             }
 
           }
         }
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+      }
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        flex-direction: column;
+        gap: 1.5rem;
       }
     }
-    .footer-lower-line {
-      .footer-copyright {
-        font-size: 1rem;
-        color: $color-neutral-medium;
+    .footer-copyright {
+      font-size: 1rem;
+      color: $color-neutral-medium;
+
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        display: block;
+        font-size: 0.875rem;
+        text-align: center;
       }
     }
   }

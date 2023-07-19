@@ -68,29 +68,47 @@
             width: 100px;
             height: 100px;
             object-fit: cover;
+
+            @media screen and (max-width: 375px) {
+              width: 80px;
+              height: 80px;
+            }
           }
     
           .minicart-product-info {
             width: 230px;
             display: flex;
             flex-direction: column;
+            flex: 1;
             gap: .5rem;
     
             .product-name {
               font-weight: 500;
               font-size: 1rem;
               color: $color-neutral-dark;
+
+              @media screen and (max-width: 375px) {
+                font-size: .8rem;
+              }
             }
             .product-price {
               font-weight: 500;
               font-size: .8rem;
               color: $color-neutral-medium;
               text-decoration: line-through;
+
+              @media screen and (max-width: 375px) {
+                font-size: .6rem;
+              }
             }
             .product-selling-price {
               font-weight: 600;
               font-size: 1rem;
-              color: $color-neutral-dark
+              color: $color-neutral-dark;
+
+              @media screen and (max-width: 375px) {
+                font-size: .8rem;
+              }
             }
           }
     
@@ -98,6 +116,13 @@
           
             .trash-icon {
               justify-content: flex-end;
+
+              @media screen and (max-width: 375px) {
+                svg {
+                  width: 24px;
+                  height: 24px;
+                }
+              }
             }
             .product-count__button {
               width: 110px;
@@ -111,6 +136,11 @@
               svg {
                 width: 18px;
                 height: 18px;
+              }
+              @media screen and (max-width: $breakpoint-mobile-max) {
+                width: 90px;
+                margin-top: .7rem;
+                font-size: .7rem;
               }
             }
           }
@@ -218,6 +248,9 @@
           background-color: #2a4e4e;
         }
       }
+    }
+    @media screen and (max-width: 520px) {
+      width: 100%;
     }
   }
 }

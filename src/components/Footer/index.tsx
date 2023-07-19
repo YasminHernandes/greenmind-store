@@ -1,9 +1,9 @@
-import logoFooter from '@/assets/svg/logo.svg'
 import facebookIcon from '@/assets/svg/facebook-icon.svg'
 import instagramIcon from '@/assets/svg/instagram-icon.svg'
 import twitterIcon from '@/assets/svg/twitter-icon.svg'
 
 import './styles.scss'
+import { Logo } from '../icons'
 
 export const Footer = () => {
   return (
@@ -11,7 +11,7 @@ export const Footer = () => {
       <div className=" footer-wrapper default-max-width-setup">
       <div className="footer-top-line">
         <div className="footer-column-left">
-          <img src={logoFooter} alt="logo icon" className="logo-footer" />
+          <Logo className='logo-footer'/>
           <span className="column-left__text">We help you find your dream plant</span>
           <div className="network-container">
             <a href="#" target="_blank" rel="noopener noreferrer" className='network__link'>
@@ -64,11 +64,9 @@ export const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="footer-lower-line">
-        <span className="footer-copyright">
-          2023 all Right Reserved Term of use GREENMIND
-        </span>
-      </div>
+      <span className="footer-copyright">
+        2023 all Right Reserved Term of use GREENMIND
+      </span>
       </div>
     </footer>
   )

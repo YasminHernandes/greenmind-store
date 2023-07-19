@@ -12,7 +12,15 @@
     align-items: center;
     gap: 6rem;
     padding: 2rem 6rem;
-  
+
+    .menu-mobile {
+      display: none;
+      
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        height: max-content;
+        display: flex;
+      }
+    }
   
     .logo__link {
       .logo-header {
@@ -21,7 +29,79 @@
     }
   
     .nav {
+      display: flex;
+      justify-content: center;
       flex: 1;
+
+      .nav-container__mobile {
+        display: none;
+
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          .menu-mobile__header {
+            .close-icon {
+              justify-content: flex-end;
+
+              svg {
+                width: 40px;
+                height: 40px;
+              }
+            }
+            .logo-menu {
+              padding: 1rem 0;
+              svg {
+                width: 120px;
+              }
+            }
+          }
+          .menu-mobile__login {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            border-bottom: 1px solid $color-neutral-medium;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+
+            .login-title {
+              display: flex;
+              align-items: center;
+              gap: 4px;
+              font-weight: 400;
+              font-size: 1.2rem;
+              color: $color-neutral-dark;
+
+              .profile-menu {
+                width: 30px;
+                height: 30px;
+
+                svg {
+                  width: 30px;
+                  height: 30px;
+                  path {
+                    fill: $color-neutral-dark;
+                  }
+                }
+              }
+            }
+            .menu-item {
+              border-radius: 8px;
+          
+              &:not(:first-child) {
+                @extend .login-title;
+                font-weight: 300;
+                padding-left: 1rem;
+              }
+            }
+            .menu-item:hover {
+              background-color: rgb(193 220 220 /.4);
+            } 
+          }
+        }
+      }
+
       .nav__list {
         display: flex;
         gap: 3rem;
@@ -48,9 +128,51 @@
           &:hover {
             color: $color-neutral-default;
             transition: .4s ease-in;
+          
             &:before {
               width: 100%;
               opacity: 1;
+            }
+          }
+        }
+      }
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        display: none;
+
+        &.--open {
+          width: 60%;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: white;
+          box-shadow: 0px 6px 8px 0px rgb(0 0 0 / 0.25);
+          padding: 1rem 1.5rem;
+
+          .nav__list {
+            gap: 1.5rem;
+            flex-direction: column;
+
+            .nav__item {
+              display: flex;
+              padding: .5rem 0;
+              border-radius: 8px;
+
+              &:hover {
+                background-color: rgb(193 220 220 /.4);
+              }
+
+              .nav__link {
+                width: 100%;
+                margin: 0;
+
+                &:not(.active):before {
+                  display: none;
+                }
+              }
             }
           }
         }
@@ -62,6 +184,10 @@
       align-items: center;
       justify-content: space-between;
       gap: 3rem;
+
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        gap: 1rem;
+      }
   
       .perfil {
         cursor: pointer;
@@ -96,5 +222,20 @@
         }
       }
     }
+
+    @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+      gap: 1rem;
+      padding: 2rem 3rem;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile-max) {
+      justify-content: space-between;
+      gap: 0;
+      padding: 1rem;
+    }
+
+    @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max)  {
+      gap: 1rem;
+    } 
   }
 }

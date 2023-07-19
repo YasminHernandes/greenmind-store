@@ -11,8 +11,11 @@
   max-width: 1440px;
   margin: 0 auto;
 
-  @media screen and (max-width: 1025.98px) {
+  @media screen and (max-width: $breakpoint-tablet-max) {
     padding: 1rem;
+  }
+  @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+    padding: 1rem 3rem !important;
   }
 }
 

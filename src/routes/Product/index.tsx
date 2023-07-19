@@ -12,7 +12,7 @@ export const Product = () => {
 
   return (
     <>
-      <div className="product-wrapper">
+      <div className="product-wrapper --wrapper">
         <BackButton/> 
         <section className="product default-max-width-setup">
           <img src={product?.img} id={product?.id} alt={`${product?.name} image`} title={`${product?.name} image`}/>

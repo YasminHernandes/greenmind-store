@@ -3,11 +3,21 @@
 // general
 .container {
   margin: 0 6rem;
+
+  @media screen and (max-width: $breakpoint-tablet-max) {
+    margin: 0;
+  }
 }
 
 .title {
   font-weight: 700;
   font-size: 2rem;
+
+  @media screen and (max-width: $breakpoint-mobile-max) {
+    font-size: 1.6rem; 
+    line-height: normal !important;
+    margin: 0 !important;
+  }
 }
 
 .subtitle {
@@ -15,6 +25,10 @@
   font-size: 1rem;
   line-height: 27px;
   color: $color-neutral-medium;
+
+  @media screen and (max-width: $breakpoint-mobile-max) {
+    text-align: center;
+  }
 }
 
 
@@ -28,16 +42,35 @@
     border-radius: 24px;
     position: relative;
     overflow: hidden;
+
     .hero-column-left {
       width: 45%;
       z-index: 9;
   
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        width: 70%;
+      }
+
       .hero-title {
         font-size: 4rem;
         font-weight: 800;
         line-height: 4rem;
         color: $color-neutral-default;
+
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          font-size: 2.5rem;
+          line-height: normal;
+        }
+        @media screen and (max-width: 425px) {
+          font-size: 1.5rem;
+          line-height: normal;
+        }
+        
+        @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
+          font-size: 3rem;
+        }
       }
+
       .species-customers-container {
         display: flex;
         margin: 1.5rem 0 2rem;
@@ -46,6 +79,11 @@
           border-right: 1px solid $color-neutral-default;
           padding-right: 3rem;
           margin-right: 3rem;
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            padding-right: 1rem;
+            margin-right: 1rem;
+          }
         }
   
         .species-values, .customers-values {
@@ -54,9 +92,39 @@
           gap: .5rem;
           font-weight: 500;
           font-size: 2rem;
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            font-size: 1rem;
+          }
   
           .species__text, .customers__text {
             font-size: 1rem;
+          }
+        }
+      }
+
+      .search-home {
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          .input-search-container {
+            height: 50px;        
+            
+            .search {
+              padding-right: 5rem;
+              &::-webkit-input-placeholder {
+                font-size: .75rem;
+              }
+            }
+
+            .button-search {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+
+        @media screen and (min-width: $breakpoint-mobile-max) {
+          .input-search-container {
+            width: 450px;
           }
         }
       }
@@ -65,6 +133,21 @@
       position: absolute;
       bottom: 0;
       right: 0;
+
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        width: 65%;
+      }
+      @media screen and (max-width: 425px) {
+        width: 60%;
+      }
+    }
+    @media screen and (max-width: $breakpoint-mobile-max) {
+      padding: 1.5rem 1rem;
+      margin: 0;
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+      margin: 0;
     }
   }
 }
@@ -77,6 +160,14 @@
 
     .first-column {
       width: 256px;
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        width: 100%;
+        align-items: center;
+      }
+
       .best-selling-plants__title {
         line-height: 48px;
         margin-bottom: .75rem;
@@ -112,6 +203,10 @@
             fill: $color-neutral-whitef5;
           }
         }
+
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          scale: .8;
+        }
       }
     }
     .home-products__cards {
@@ -129,7 +224,13 @@
           height: 363px;
           object-fit: cover;
           border-radius: 12px;
-          
+         
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            height: 150px;
+          }
+          @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
+            height: 230px;
+          }
         }
         .product-container__price {
           margin-bottom: 0;
@@ -139,13 +240,38 @@
             color: $color-neutral-medium
           }
         }
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          width: 106px;
+          height: 100%;
+        }
+        @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
+          width: 180px;
+        }
+      }
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        justify-content: space-evenly;
+      }
+      @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+        width: 70%;
       }
     }
-  }  
-}
+    @media screen and (max-width: $breakpoint-mobile-max) {
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+    @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+      gap: 2rem;
+      margin: 2rem 0 0;
+    }
+  }
+  @media screen and (max-width: $breakpoint-mobile-max) {
+    margin-top: 4rem;
+  }
+} 
 
 .about-us-wrapper {
   margin-bottom: 10.3rem;
+
   .about-us-container {
     display: flex;
     flex-direction: column;
@@ -195,25 +321,42 @@
       margin-top: 3rem;
     }
   }
+  @media screen and (max-width: $breakpoint-mobile-max) {
+    margin-bottom: 4rem;
+  }
+  @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+    margin-bottom: 7rem;
+  }
 }
 
 .categories-wrapper {
   .categories__header {
     text-align: center;
     margin-bottom: 6rem;
+
+    @media screen and (max-width: $breakpoint-mobile-max) {
+      margin-bottom: 4rem;
+    }
   }
 
   .categories-container {
     .categories-content {
-      background: $color-primary-default;
       width: 100%;
       height: 841px;
+      position: relative;
+      background: $color-primary-default;
       padding: 3rem 6rem;
+
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        height: 750px;
+        padding: 3rem 2rem;
+      }
 
       .categories-cards {
         display: flex;
         justify-content: space-between;
         gap: 6rem;
+
         .categories-card {
           display: flex;
           flex-direction: column;
@@ -223,6 +366,19 @@
             width: 352px;
             height: 512px;
             border-radius: 12px;
+
+            @media screen and (max-width: $breakpoint-mobile-max) {
+              width: 150px;
+              height: 230px;
+            }
+            @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
+              width: 200px;
+              height: 250px;
+            }
+            @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+              width: 250px;
+              height: 300px;
+            }
           }
           .categories-card__title {
             font-weight: 700;
@@ -238,6 +394,10 @@
             .categories-card__text {
               text-align: center;
               margin-bottom: 1.5rem;
+
+              @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+                width: 70%;
+              }
             }
             .categories__button {
               width: 147px;
@@ -265,12 +425,34 @@
               }
             }
           }
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            &:nth-child(2) {
+              position: absolute;
+              top: 80%;
+              right: 0;
+            }
+          }
+          
         }
         .categories-card:nth-child(1),
         .categories-card:nth-child(3) {
           position: relative;
           top: -95px;
         }
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          gap: 1.5rem;
+        }
+        @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+          gap: 1.5rem;
+        }
+      }
+
+      @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+        height: 100%;
+        padding: 4rem 3rem;
       }
     }
   }
@@ -279,15 +461,28 @@
 .rates-container {
   padding: 6rem 0 4rem;
 
+  @media screen and (max-width: $breakpoint-mobile-max) {
+    padding: 1rem 0;
+  }
+
   .rates__title {
-    font-weight: 700;
-    font-size: 2rem;
     width: 40%;
     margin-bottom: 3rem;
+    font-weight: 700;
+    font-size: 2rem;
+
+    @media screen and (max-width: $breakpoint-mobile-max) {
+      margin-bottom: 2rem;      
+      font-size: 1rem;
+      text-align: center;
+    }
+    @media screen and (max-width: 1440px) {
+      width: 100%;
+    }
   }
 
   .swiper {
-    overflow: visible;
+    overflow: hidden;
     
     .swiper-wrapper {
       .rates-card {
@@ -303,26 +498,49 @@
           line-height: 27px;
           color: $color-neutral-dark;
           margin-bottom: 3.4rem;
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            font-size: .75rem;
+            line-height: normal;
+            margin-bottom: 1.5rem;
+          }
+          @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
+            font-size: .8rem;
+            margin-bottom: 3rem;
+          }
         }
         .rates-card-person-info {
           display: flex;
+          position: relative;
     
           .quotes-icon {
             height: max-content;
+
+            @media screen and (max-width: $breakpoint-mobile-max) {
+              width: 45px;
+              position: absolute;
+              top: -16px;
+              z-index: -1;
+            }
           }
     
           .person-image {
             border-radius: 50%;
-            position: relative;
             left: -40px;
             width: 128px;
             height: 128px;
+
+            @media screen and (max-width: $breakpoint-mobile-max) {
+              width: 65px;
+              height: 65px;
+              margin-right: .5rem;
+            }
           }
     
           .person-name {
             font-weight: 700;
             font-size: 1rem;
-            line-height: 27px;
+            line-height: normal;
             display: flex;
             flex-direction: column;
     
@@ -343,6 +561,16 @@
             gap: .75rem;
             flex: 1;        
           }
+        }
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          width: 100% !important;
+          height: 100%;
+          padding: 1.5rem;
+        }
+
+        @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
+          padding: 2.5rem;
+          width: 610px !important;
         }
       }
     }

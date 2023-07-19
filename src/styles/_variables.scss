@@ -1,12 +1,12 @@
-$color-primary-default: #C1DCDC;
-$color-primary-medium: #598888;
-$color-primary-dark: #446969;
-$color-neutral-default: #1E1E1E;
+$color-primary-default: rgb(193 220 220);
+$color-primary-medium: rgb(89 136 136);
+$color-primary-dark: rgb(68 105 105);
+$color-neutral-default: rgb(30 30 30);
 $color-neutral-dark: rgb(30 30 30 / 0.75);
 $color-neutral-medium: rgba(30 30 30 / 0.5);
-$color-neutral-whitef5: #f5f5f5;
-$color-feedback-red: #DC716B;
+$color-neutral-whitef5: rgb(245 245 245);
+$color-feedback-red: rgb(220 113 107);
 
 $breakpoint-desktop-max:  1920px;
-$breakpoint-tablet-max:  1025.98px;
+$breakpoint-tablet-max:  1024px;
 $breakpoint-mobile-max:  768px;

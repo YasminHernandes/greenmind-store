@@ -8,7 +8,7 @@ export const Contacts = () => {
   
   return (
     <>
-      <div className="contact-wrapper">
+      <div className="contact-wrapper --wrapper">
         <section className="contact">
           <div className="contact-wrapper default-max-width-setup">
             <h2 className="contact__title">

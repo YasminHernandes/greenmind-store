@@ -2,6 +2,7 @@
 
 .newsletter {
   margin-bottom: 4.5rem;
+
   .newsletter-wrapper {
     padding: 0 6rem;
 
@@ -20,6 +21,12 @@
           font-size: 2.5rem;
           line-height: 60px;
           color: $color-primary-dark;
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            font-size: 1.125rem;
+            line-height: normal;
+            text-align: center;
+          }
         }
 
         .newsletter__text {
@@ -28,6 +35,22 @@
           font-weight: 400;
           font-size: 1rem;
           color: $color-neutral-medium;
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            width: 100%;
+            margin-top: .25rem;
+            font-size: .75rem;
+            text-align: center;
+            justify-content: center;
+          }
+          @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
+            justify-content: center;
+          }
+        }
+
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          width: 100%;
+          padding: 0;
         }
       }
 
@@ -91,7 +114,38 @@
             background: #244545;
             opacity: 1;
           }
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            width: 100%
+          }
+          @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+            width: 100px;
+            padding: .5rem;
+          }
         }
+
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          width: 100%;
+          flex-direction: column;
+        }
+        @media screen and (max-width: 1440px) {
+          height: 50px;
+        }
+      }
+      
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        flex-direction: column;
+        margin-top: 2rem;
+      }
+
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
+        width: 100%;
+        margin: 0;
       }
     }
     .newsletter-footer {
@@ -100,7 +154,19 @@
         font-size: 1rem;
         color: $color-neutral-medium;
         text-align: center;
+
+        @media screen and (max-width: $breakpoint-mobile-max) {
+          font-size: 0.75rem;
+        }
+        @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
+          width: 60%;
+          margin: 1rem auto 0;
+        }
       }
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-max) {
+      padding: 0 1rem;
     }
   }
 }

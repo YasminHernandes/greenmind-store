@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay } from 'swiper';
 import { Search, ProductCard } from '@/components'
-import { ArrowRight } from '@/components/icons/arrowRight'
+import { ArrowRight } from '@/components/icons'
 import { useApi } from '@/hooks/useApi'
 import { Product } from '@/types/product-types'
 
@@ -28,7 +28,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className="home-wrapper">
+      <div className="home-wrapper --wrapper">
         <section className="section hero-wrapper default-max-width-setup">
           <div className="container hero-container">
             <div className="hero-column-left">
@@ -171,6 +171,10 @@ export const Home = () => {
                 breakpoints={{
                   1025: {
                     slidesPerView: "auto"
+                  },
+                  768: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 24
                   }
                 }}
               >

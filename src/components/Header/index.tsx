@@ -1,25 +1,50 @@
 import './styles.scss'
-import logoHeader from '@/assets/svg/logo.svg'
 import minicartIcon from '@/assets/svg/minicart.svg'
-import perfilIcon from '@/assets/svg/perfil.svg'
 
 import { NavLink } from 'react-router-dom'
 import { Minicart } from '@/components'
 import { useMinicartContext } from '@/hooks/useMinicartContext'
+import { MenuMobile, Logo, CloseIcon, Profile} from '@/components/icons'
+import { useState } from 'react'
 
 
 export const Header = () => {
   const pathName = window.location.pathname.split('/').slice(-1)  
   const { minicart, toggleMinicart, Calculate } = useMinicartContext()
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen)
+  }
   
+  menuOpen && (
+    window.addEventListener('keydown', (e) => {
+      e.key === 'Escape' && setMenuOpen(false)
+    })
+  )
+
   return (
     <>
       <header className={`header --${pathName}`}>
         <div className="header-wrapper default-max-width-setup">
-          <a href="/" className="logo__link">
-            <img className="logo-header" src={logoHeader} alt="" />
-          </a>
-          <nav className="nav">
+          <MenuMobile onClick={toggleMenu}/>
+          <Logo className='logo-header'/>
+          <nav className={`nav ${menuOpen ? '--open' : ''}`}>
+            <div className="nav-container__mobile">
+              <div className="menu-mobile__header">
+                <CloseIcon onClick={toggleMenu}/>
+                <Logo className='logo-menu'/>
+              </div>
+              <div className="menu-mobile__login">
+                <a href='\' className="login-title menu-item">
+                  Login
+                  <Profile className="profile-menu"/>
+                </a>
+                <a href="\" className='menu-item'>Account</a>
+                <a href="\" className='menu-item'>My orders</a>
+                <a href="\" className='menu-item'>My wishlist</a>
+              </div>
+            </div>
             <ul className="nav__list">
               <li className="nav__item">
                 <NavLink 
@@ -55,7 +80,7 @@ export const Header = () => {
               <img src={minicartIcon} alt="minicart icon" className="minicart header-icon"/>
               <span className="count">{ Calculate.totalItems() } </span>
             </div>
-            <img src={perfilIcon} alt="perfil icon" className="perfil header-icon" />
+            <Profile className="perfil header-icon"/>
           </div>
           { minicart && <Minicart /> }
         </div>
