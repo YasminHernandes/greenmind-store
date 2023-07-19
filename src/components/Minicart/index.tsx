@@ -11,9 +11,15 @@ import { Link } from 'react-router-dom'
 export const Minicart = () => {
   const cartItems = localStorage.getItem('cart-items')
   const cartItemsArray = JSON.parse(cartItems!)
-  const { minicart, toggleMinicart, removeItem, Calculate, shipping, hasShipping } =  useMinicartContext()
+  const { minicart, setMinicart, toggleMinicart, removeItem, Calculate, shipping, hasShipping } =  useMinicartContext()
   const minicartRef = useRef<HTMLDivElement>(null)
-  
+
+  minicart && (
+    window.addEventListener('keydown', (e) => {
+      e.key === 'Escape' && setMinicart(false)
+    })
+  )
+
   //!@YasminHernandes Fix this
   useEffect(() => {
     const handlerMinicartClose = (e: any) => {
