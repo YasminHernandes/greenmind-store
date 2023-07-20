@@ -1,6 +1,6 @@
 import './styles.scss'
 
-import { MinicartIcon, TrashIcon, CloseIcon } from '@/components/icons'
+import { MinicartEmptyIcon, TrashIcon, CloseIcon } from '@/components/icons'
 import { ProductInCart } from '@/types/product-types'
 import { useMinicartContext } from '@/hooks/useMinicartContext'
 import { useEffect, useRef } from 'react'
@@ -14,6 +14,7 @@ export const Minicart = () => {
   const { minicart, setMinicart, toggleMinicart, removeItem, Calculate, shipping, hasShipping } =  useMinicartContext()
   const minicartRef = useRef<HTMLDivElement>(null)
 
+  
   minicart && (
     window.addEventListener('keydown', (e) => {
       e.key === 'Escape' && setMinicart(false)
@@ -66,7 +67,7 @@ export const Minicart = () => {
               ))}
             </ul>
             <div className="minicart__footer">
-              <div className="sutotal-and-shipping-container">
+              <div className="subtotal-and-shipping-container">
                 <span className="subtotal__title">
                   Subtotal
                   <span className="subtotal__price">
@@ -96,7 +97,7 @@ export const Minicart = () => {
                 Minicart empty
               </h2>
               <div className="minicart-empty">
-                <MinicartIcon/>
+                <MinicartEmptyIcon/>
                 <p className="minicart-empty__text">
                   Sorry, you have no products here
                 </p>

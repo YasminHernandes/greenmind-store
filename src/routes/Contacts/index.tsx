@@ -1,9 +1,7 @@
-import mapIcon from '@/assets/svg/map-icon.svg'
-import phoneIcon from '@/assets/svg/phone-contact-icon.svg'
-import emailIcon from '@/assets/svg/email-contact-icon.svg'
-import hoursIcon from '@/assets/svg/hours-icon.svg'
-
 import './styles.scss'
+
+import { MapIcon, PhoneContactIcon, EmailIcon, HoursIcon } from '@/components/icons'
+
 export const Contacts = () => {
   
   return (
@@ -38,20 +36,20 @@ export const Contacts = () => {
                 <span className="contact-info__text address">
                   7631 Ridge Ave, Philadelphia, PA <br/> 
                   19128, United States
-                  <img src={mapIcon} alt="Map icon" className="contact-info__icon" />
+                  <MapIcon className="contact-info__icon" />
                 </span>
                 <span className="contact-info__text tellphone">
                   +1 215 483 5009
-                  <img src={phoneIcon} alt="Phone icon" className="contact-info__icon" />
+                  <PhoneContactIcon className="phone contact-info__icon" />
                 </span>
                 <span className="contact-info__text email">
                   greenmindstore@contact.com
-                  <img src={emailIcon} alt="Email icon" className="contact-info__icon" />
+                  <EmailIcon className="email contact-info__icon" />
                 </span>
                 <span className="contact-info__text hours">
                   Open Monday to Friday from 9am to 5pm <br/>
                   Saturday, Sunday and holidays from 10am to 7pm
-                  <img src={hoursIcon} alt="Hours icon" className="contact-info__icon" />
+                  <HoursIcon className="hours contact-info__icon" />
                 </span>
               </div>
             </div>

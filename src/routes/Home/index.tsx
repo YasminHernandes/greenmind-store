@@ -1,23 +1,17 @@
-import heroImage from '@/assets/svg/bg-hero.svg'
-import plantIcon from '@/assets/svg/plant-icon.svg'
-import boxIcon from '@/assets/svg/box-icon.svg'
-import phoneIcon from '@/assets/svg/phone-icon.svg'
-import quotesIcon from '@/assets/svg/quotes.svg'
-import starFill from '@/assets/svg/starfill.svg'
+import 'swiper/scss'
+import 'swiper/scss/autoplay'
+import './styles.scss'
 
-import { person } from '@/assets/data'
+import { ArrowRight, BgHero, PlantIcon, BoxIcon, PhoneHomeIcon, Quotes, StarFill } from '@/components/icons'
 
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay } from 'swiper';
+import { person } from '@/assets/data'
 import { Search, ProductCard } from '@/components'
-import { ArrowRight } from '@/components/icons'
 import { useApi } from '@/hooks/useApi'
 import { Product } from '@/types/product-types'
 
-import 'swiper/scss'
-import 'swiper/scss/autoplay'
-import './styles.scss'
 
 
 export const Home = () => {
@@ -51,7 +45,7 @@ export const Home = () => {
               </div>
               <Search className="search-home" placeholder="What are you looking for?"/>
             </div>
-            <img src={heroImage} alt="hero image" className='hero-image' />
+            <BgHero className='hero-image'/>
           </div>
         </section>
 
@@ -93,21 +87,21 @@ export const Home = () => {
             <div className="about-us-content">
               <div className="about-us__item">
                 <span className="about-us__item-icon">
-                  <img src={plantIcon} alt="" className='about-us__icon' />
+                  <PlantIcon className='about-us__icon'/>
                 </span>
                 <h4 className="about-us__item-title">Large Asssortment</h4>
                 <p className="about-us__item-text">we offer many different types of products with fewer variations in each category.</p>
               </div>
               <div className="about-us__item">
                 <span className="about-us__item-icon">
-                  <img src={boxIcon} alt="" className='about-us icon' />
+                  <BoxIcon className='about-us icon'/>
                 </span>
                 <h4 className="about-us__item-title">Fast & Free Shipping</h4>
                 <p className="about-us__item-text">4-day or less delivery time, free shipping and an expedited delivery option.</p>
               </div>
               <div className="about-us__item">
                 <span className="about-us__item-icon">
-                  <img src={phoneIcon} alt="" className='about-us icon' />
+                  <PhoneHomeIcon className='about-us icon' />
                 </span>
                 <h4 className="about-us__item-title">24/7 Support</h4>
                 <p className="about-us__item-text">answers to any business related inquiry 24/7 and in real-time.</p>
@@ -184,7 +178,7 @@ export const Home = () => {
                       <SwiperSlide className="rates-card" key={item.id}>
                       <p className="rates-card__text">Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
                       <div className="rates-card-person-info">
-                        <img src={quotesIcon} alt="quotes icon" className="quotes-icon" />
+                        <Quotes className="quotes-icon" />
                         <img src={item.img} alt="" className="person-image" />
                         <span className="person-name">
                           {item.name}
@@ -193,7 +187,7 @@ export const Home = () => {
                           </span>
                         </span>
                         <span className="rates-value">
-                          <img src={starFill} alt="Star rate" className="star-icon"/>
+                          <StarFill className="star-icon"/>
                           4.5
                         </span>
                       </div>
