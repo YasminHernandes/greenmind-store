@@ -1,4 +1,4 @@
-import emailIcon from '@/assets/svg/email-icon.svg'
+import { EmailIcon } from '@/components/icons'
 
 import './styles.scss'
 export const Newsletter = () => {
@@ -22,10 +22,9 @@ export const Newsletter = () => {
               <div className="newsletter-input-container">
                 <label htmlFor="newsletter-email" className="sr-only">Email</label>
                 <input type="email" name="newsletter-email" id="newsletter-email" className="newsletter__input"
-                placeholder="email@email.com" />
-                <img src={emailIcon} alt="Email icon" className="email-image"/>
+                placeholder="email@email.com"/>
+                <EmailIcon className="email-icon"/>
               </div>
-
               <button type="submit" className="newsletter__button">Send</button>
             </div>
           </div>

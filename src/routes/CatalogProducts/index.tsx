@@ -5,6 +5,7 @@ import cactus from '@/assets/png/cactus.png'
 import bonsai from '@/assets/png/bonsai.png'
 import banner from '@/assets/png/banner-footer.png'
 import bannerStroke from '@/assets/svg/banner-image-stroke.svg'
+import { PlantDrawBanner } from '@/components/icons'
 
 import { 
   Search,
@@ -155,8 +156,8 @@ export const CatalogProducts = () => {
                 <span className="banner__text">any environment into a natural and cozy haven with plants.</span>
               </h3>
               <img src={banner} alt="Banner footer image" className="banner-image" />
-              <img src={bannerStroke} alt="banner stroke" className="banner-stroke"/>
-              <img src={bannerStroke} alt="banner stroke" className="banner-stroke"/>
+              <PlantDrawBanner  className="banner-stroke"/>
+              <PlantDrawBanner  className="banner-stroke"/>
             </div>
           </div>
         </section>

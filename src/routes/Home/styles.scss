@@ -134,6 +134,9 @@
       bottom: 0;
       right: 0;
 
+      svg {
+        height: max-content;
+      }
       @media screen and (max-width: $breakpoint-mobile-max) {
         width: 65%;
       }
@@ -515,13 +518,10 @@
     
           .quotes-icon {
             height: max-content;
-
-            @media screen and (max-width: $breakpoint-mobile-max) {
-              width: 45px;
-              position: absolute;
-              top: -16px;
-              z-index: -1;
-            }
+            width: 45px;
+            position: absolute;
+            top: -16px;
+            z-index: -1;
           }
     
           .person-image {

@@ -38,6 +38,8 @@
         }
   
         .network-container {
+          display: flex;
+          
           .network__link {
             .network-icon {
               width: 48px;

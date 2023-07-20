@@ -1,11 +1,10 @@
 import './styles.scss'
-import minicartIcon from '@/assets/svg/minicart.svg'
 
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Minicart } from '@/components'
 import { useMinicartContext } from '@/hooks/useMinicartContext'
-import { MenuMobile, Logo, CloseIcon, Profile} from '@/components/icons'
-import { useState } from 'react'
+import { MinicartIcon, MenuMobile, Logo, CloseIcon, Profile} from '@/components/icons'
 
 
 export const Header = () => {
@@ -77,10 +76,10 @@ export const Header = () => {
           </nav>
           <div className="header-column-right">
             <div className="minicart-container" onClick={toggleMinicart}>
-              <img src={minicartIcon} alt="minicart icon" className="minicart header-icon"/>
+              <MinicartIcon className="minicart-icon header-icon"/>
               <span className="count">{ Calculate.totalItems() } </span>
             </div>
-            <Profile className="perfil header-icon"/>
+            <Profile className="profile header-icon"/>
           </div>
           { minicart && <Minicart /> }
         </div>

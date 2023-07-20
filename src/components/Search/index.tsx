@@ -1,6 +1,6 @@
-import searchIcon from '@/assets/svg/search-icon.svg'
-
 import './styles.scss'
+
+import { SearchIcon } from '@/components/icons'
 
 type Props = {
   className: string,
@@ -14,7 +14,7 @@ export const Search = ({className, id, placeholder} : Props) => {
       <div className="input-search-container">
         <input type="text" name="search" id={id} className="search" placeholder={placeholder}/>
         <button type='submit' className="button-search">
-          <img src={searchIcon} alt="search icon" />
+          <SearchIcon className="search-icon"/>
         </button>
       </div>
     </div>

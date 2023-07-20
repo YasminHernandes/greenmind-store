@@ -1,8 +1,8 @@
 
-import arrowDown from '@/assets/svg/arrow-down.svg'
 
 import './style.scss'
 import { useEffect, useRef, useState } from 'react'
+import { ArrowDown } from '@/components/icons'
 
 type Props = {
   placeholder: string,
@@ -47,8 +47,8 @@ export const Dropdown = ({ placeholder, options }: Props) => {
   return (
     <div className="dropdown-container" onClick={handleClick}>
       <div ref={inputRef} className="dropdown-container__input">
-        {getTitle()}
-        <img src={arrowDown} alt="arrow down" className="select__arrow" />
+        { getTitle() }
+        <ArrowDown/>
       </div>
       { showMenu && (
         <div className="dropdown-container__options">

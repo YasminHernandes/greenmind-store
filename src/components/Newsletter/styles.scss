@@ -84,15 +84,38 @@
 
             &:focus-visible {
               outline: 1px solid $color-primary-dark;
+
+              + .email-icon {
+                svg {
+                  path {
+                    &:first-child {
+                      fill: $color-primary-dark;
+                    }
+                    &:last-child {
+                      stroke: $color-primary-dark;
+                    }
+                  }
+                }
+              }
             }
           }
-          .email-image {
+          .email-icon {
             position: absolute;
             top: 50%;
             left: 40px;
             transform: translateY(-50%);
+            
+            svg {
+              path {
+                &:first-child {
+                  fill: rgb(180 180 180);
+                }
+                &:last-child {
+                  stroke: rgb(180 180 180);
+                }
+              }
+            }
           }
-
         }
 
         .newsletter__button {
