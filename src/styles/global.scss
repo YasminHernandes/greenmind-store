@@ -16,7 +16,7 @@
   margin: 0 auto;
 
   @media screen and (max-width: $breakpoint-tablet-max) {
-    padding: 1rem;
+    padding: 1rem !important;
   }
   @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
     padding: 1rem 3rem !important;

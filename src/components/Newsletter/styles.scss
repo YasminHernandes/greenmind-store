@@ -23,7 +23,7 @@
           color: $color-primary-dark;
 
           @media screen and (max-width: $breakpoint-mobile-max) {
-            font-size: 1.125rem;
+            font-size: 1.6rem;
             line-height: normal;
             text-align: center;
           }
@@ -84,6 +84,10 @@
                   font-weight: 400;
                   font-size: 1rem;
                   color: $color-neutral-medium;
+
+                  @media screen and (max-width: $breakpoint-mobile-max) {
+                    font-size: .8rem;
+                  }
                 }
     
                 &:focus-visible {
@@ -121,6 +125,10 @@
                 &.error--active {
                   border: 1px solid $color-feedback-red; 
                 }
+
+                @media screen and (max-width: $breakpoint-mobile-max) {
+                  padding-left: calc(2rem + 40px);
+                }
               }
               .email-icon {
                 position: absolute;
@@ -149,6 +157,10 @@
                       }
                     }
                   }
+                }
+
+                @media screen and (max-width: $breakpoint-mobile-max) {
+                  left: 20px;
                 }
               }
             }
@@ -193,15 +205,16 @@
               padding: .5rem;
             }
           }
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            flex-direction: column;
+          }
         }
 
 
         @media screen and (max-width: $breakpoint-mobile-max) {
           width: 100%;
           flex-direction: column;
-        }
-        @media screen and (max-width: 1440px) {
-          height: 50px;
         }
       }
       
@@ -219,8 +232,8 @@
       }
 
       @media screen and (max-width: $breakpoint-mobile-max) {
-        width: 80%;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0;
       }
 
       @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
@@ -238,8 +251,8 @@
         @media screen and (max-width: $breakpoint-mobile-max) {
           font-size: 0.75rem;
         }
-        @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
-          width: 60%;
+        @media screen and (min-width: 375px) and (max-width: $breakpoint-tablet-max) {
+          width: 70%;
           margin: 1rem auto 0;
         }
       }
