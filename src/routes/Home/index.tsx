@@ -2,13 +2,25 @@ import 'swiper/scss'
 import 'swiper/scss/autoplay'
 import './styles.scss'
 
-import { ArrowRight, BgHero, PlantIcon, BoxIcon, PhoneHomeIcon, Quotes, StarFill } from '@/components/icons'
+import { 
+  ArrowRight, 
+  BgHero, 
+  PlantIcon, 
+  BoxIcon, 
+  PhoneHomeIcon, 
+  Quotes,
+  StarFill 
+} from '@/components/icons'
+
+import { 
+  Search, 
+  ProductCard
+} from '@/components'
 
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay } from 'swiper';
 import { person } from '@/assets/data'
-import { Search, ProductCard } from '@/components'
 import { useApi } from '@/hooks/useApi'
 import { Product } from '@/types/product-types'
 

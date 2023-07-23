@@ -1,7 +1,8 @@
+import './styles.scss'
+
 import { BackButton } from "@/components/BackButton"
 import { useProduct } from "@/hooks/useProduct"
 
-import './styles.scss'
 import { AddToCart } from "@/components"
 import { useParams } from "react-router-dom"
 

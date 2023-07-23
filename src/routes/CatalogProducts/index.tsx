@@ -4,7 +4,6 @@ import naturalPlants from '@/assets/png/natural-plants.png'
 import cactus from '@/assets/png/cactus.png'
 import bonsai from '@/assets/png/bonsai.png'
 import banner from '@/assets/png/banner-footer.png'
-import bannerStroke from '@/assets/svg/banner-image-stroke.svg'
 import { PlantDrawBanner } from '@/components/icons'
 
 import { 
@@ -12,7 +11,7 @@ import {
   CategoryCard,
   Dropdown,
   ProductCard,
-  SwiperCatalogProducts,
+  SwiperCatalogProducts
 } from '@/components';
 
 import { SwiperSlide } from 'swiper/react';
@@ -111,6 +110,7 @@ export const CatalogProducts = () => {
                   <div className="products__cards">
                     { products.map((product: ProductType) => (
                         <ProductCard
+                          key={Number(product.id)+1}
                           id={product.id}
                           title={product.name}
                           type={product.type}
@@ -129,8 +129,9 @@ export const CatalogProducts = () => {
                 <h3 className="best-sellers__title">Best sellers</h3>
                 <SwiperCatalogProducts>
                   { products.map((product: ProductType) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={Number(product.id)+1}>
                       <ProductCard
+                        key={Number(product.id)+1}
                         id={product.id}
                         title={product.name}
                         type={product.type}

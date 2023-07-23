@@ -38,7 +38,7 @@ export const Contacts = () => {
                   19128, United States
                   <MapIcon className="contact-info__icon" />
                 </span>
-                <span className="contact-info__text tellphone">
+                <span className="contact-info__text phone">
                   +1 215 483 5009
                   <PhoneContactIcon className="phone contact-info__icon" />
                 </span>
@@ -62,8 +62,8 @@ export const Contacts = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="iframe"
-                />
-
+            />
+            
           </div>
         </section>
       </div>

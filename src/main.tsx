@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom/client'
+import * as ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Home, CatalogProducts, Contacts, Product, Checkout } from './routes'
