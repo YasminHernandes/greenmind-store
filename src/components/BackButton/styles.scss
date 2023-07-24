@@ -12,5 +12,9 @@
     color: $color-primary-medium;
     margin: 0 6rem;
     cursor: pointer;
+
+    @media screen and (max-width: $breakpoint-desktop-max) {
+      margin: 0;
+    }
   }
 }
