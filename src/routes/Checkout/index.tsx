@@ -19,8 +19,8 @@ export const Checkout = () => {
           <div className="checkout-container">
             <div className="cart-items">
               <h1 className='cart__title'>
-              Cart
-              <span className="total-items">{cartItemsArray.length} items in cart</span>
+                Cart
+                <span className="total-items">{cartItemsArray.length} items in cart</span>
               </h1>
               <table>
                   <thead>
@@ -32,10 +32,10 @@ export const Checkout = () => {
                   </thead>
                   <tbody>
                     {cartItemsArray.map((product: ProductInCart) => (
-                      <tr>
+                      <tr key={product.id}>
                       <td>
                         <div className="product-item-container">
-                          <img src={product.img}  alt={product.img} />
+                          <img src={product.img}  alt={product.img} className="product__image"/>
                           <div className="product__title">
                             <span className="product-name">
                               {product.name}
@@ -69,6 +69,38 @@ export const Checkout = () => {
                     ))}
                   </tbody>
               </table>
+              <div className="checkout-mobile">
+                { cartItemsArray.map((product: ProductInCart) => (
+                  <div className="product-container" key={product.id}>
+                    <div className="product-image-and-info">
+                      <img src={product.img} alt={product.img} className="product__image"/>
+                      <div className="product-info-container">
+                        <h2 className="product-name">
+                          {product.name}
+                        </h2>
+                        <span className="product-type">
+                          {product.type}
+                        </span>
+                        <div className="product-price">
+                          <span className='price'>
+                            ${product.price}
+                          </span>
+                          <span className='selling-price'>
+                            ${product.selling_price}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="product-count-container">
+                      <Count id={product.id} quantity={product.quantity}/>
+                      <span onClick={() => removeItem(product.id)}>
+                        <TrashIcon />
+                        Remove
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>  
             <div className="cart-total-price">
               <span className="cart-subtotal cart-value">
