@@ -34,7 +34,7 @@ export const Contacts = () => {
               </div>
               <div className="contact-infos">
                 <span className="contact-info__text address">
-                  7631 Ridge Ave, Philadelphia, PA <br/> 
+                  7631 Ridge Ave, Philadelphia, PA
                   19128, United States
                   <MapIcon className="contact-info__icon" />
                 </span>
