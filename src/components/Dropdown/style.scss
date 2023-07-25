@@ -5,6 +5,7 @@
 
   .dropdown-container__input {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 270px;
     appearance: none;
@@ -15,6 +16,11 @@
 
     &:focus ~ .select__arrow {
       transform: rotate(180deg);
+    }
+
+    @media screen and (max-width: $breakpoint-mobile-max) {
+      width: 100%;
+      gap: 1rem;
     }
   }
   .dropdown-container__options {
@@ -37,5 +43,9 @@
         background: $color-primary-default;
       }
     }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile-max) {
+    flex: 1;
   }
 }

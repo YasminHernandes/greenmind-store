@@ -11,20 +11,17 @@ import {
   CategoryCard,
   Dropdown,
   ProductCard,
-  SwiperCatalogProducts
+  SwiperProductsCatalog
 } from '@/components';
 
 import { SwiperSlide } from 'swiper/react';
-import { useEffect, useState } from 'react'
 import { ProductType } from '@/types/product-types';
 import { SortByType } from '@/types/sort-by-type'
 import { useApi } from '@/hooks/useApi'
+import { ProductTypes } from '@/components/ProductTypes'
 
-export const CatalogProducts = () => {  
+export const ProductsCatalog = () => {  
   const { data: products } = useApi<ProductType[]>('https://plantsapi.vercel.app');
-
-  const [productsFiltered, setProductsFiltered] = useState<string[]>([]);
-  
   const options = [
     { value: SortByType.RELEVANCY, label: SortByType.RELEVANCY },
     { value: SortByType.HIGHEST_TO_LOWEST, label: SortByType.HIGHEST_TO_LOWEST },
@@ -32,19 +29,8 @@ export const CatalogProducts = () => {
     { value: SortByType.MOST_RATED, label: SortByType.MOST_RATED },
     { value: SortByType.BESTSELLERS, label: SortByType.BESTSELLERS }
   ]
-
-  useEffect(() => {
-    const arrayAux: string[] = [];
-    const typeProducts = products.map((item: ProductType) => item.type);
-    typeProducts.forEach((type: string) => {
-      if (!arrayAux.includes(type)) {
-        arrayAux.push(type);
-      }
-    });
-    setProductsFiltered(arrayAux)
-  }, [products])
-
   
+
   return (
     <>
       <div className="catalog-wrapper --wrapper">
@@ -77,35 +63,19 @@ export const CatalogProducts = () => {
           <div className="products-wrapper default-max-width-setup">
             <div className="products-content">
               <div className="products-filter-and-cards">
-                <div className="products-filter">
-                  <h3 className="products-filter__title">Types</h3>
-                  <Search className="search-types-products-wrapper" id="search-types-products" placeholder="Search by type"/>
-                  <div className="types-options-container">
-                    <div className="types-options">
-                      { productsFiltered.map((product: string) => (
-                        <div className="type-option" key={product}>
-                          <label htmlFor="type" className="type__label">
-                            <input type="checkbox" 
-                                name="type" 
-                                id={product} 
-                                className="search-type__input" 
-                                title={`type ${product}`}
-                              />
-                            {product.toUpperCase()}
-                            <span className="input-checkmark"></span>
-                          </label>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+               <ProductTypes className="--desktop"/>
                 <div className="products-cards-container">
-                  <div className="products-count-and-sort">
-                    <span className="products-count">Showed 30 items</span>
-                    <span className="products-sort">
-                      Sort by
-                      <Dropdown placeholder="Relevancy" options={options}/>
-                    </span>
+                  <div className="products-count-and-types-wrapper">
+                    <div className="count-and-sort">
+                      <span className="products-count">Showed 30 items</span>
+                      <div className="products-sort">
+                        <span className="sort__text">
+                          Sort by
+                        </span>
+                        <Dropdown placeholder="Relevancy" options={options}/>
+                      </div>
+                    </div>
+                    <ProductTypes className="--mobile"/>
                   </div>
                   <div className="products__cards">
                     { products.map((product: ProductType) => (
@@ -127,7 +97,7 @@ export const CatalogProducts = () => {
               </div>
               <div className="products-best-sellers">
                 <h3 className="best-sellers__title">Best sellers</h3>
-                <SwiperCatalogProducts>
+                <SwiperProductsCatalog>
                   { products.map((product: ProductType) => (
                     <SwiperSlide key={Number(product.id)+1}>
                       <ProductCard
@@ -144,7 +114,7 @@ export const CatalogProducts = () => {
                     </SwiperSlide>
                     ))
                   }
-                </SwiperCatalogProducts>
+                </SwiperProductsCatalog>
               </div>
             </div>
           </div>

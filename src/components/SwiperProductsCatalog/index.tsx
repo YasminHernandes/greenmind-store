@@ -6,10 +6,9 @@ import 'swiper/scss'
 type Props = {
   children: ReactNode
 }
-export const SwiperCatalogProducts = ({children}: Props) => {
+export const SwiperProductsCatalog = ({children}: Props) => {
   return (
     <Swiper
-      loop={true} 
       slidesPerView={'auto'}
       spaceBetween={48}
     >

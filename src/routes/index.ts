@@ -1,5 +1,5 @@
 export { Home } from './Home'
-export { CatalogProducts } from './CatalogProducts'
+export { ProductsCatalog } from './ProductsCatalog'
 export { Contacts } from './Contacts'
 export { Product } from './Product'
 export { Checkout } from './Checkout'

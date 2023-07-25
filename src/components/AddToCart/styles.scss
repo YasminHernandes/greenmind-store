@@ -17,7 +17,6 @@
   padding: 16px;
   margin-top: 1rem;
   cursor: pointer;
-  z-index: 9999;
 
   &:hover {
     background: transparent;
@@ -30,5 +29,9 @@
     svg path {
       fill: white;
     }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile-max) {
+    font-size: .9rem;
   }
 }

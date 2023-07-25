@@ -12,6 +12,11 @@
     height: 280px;
     border-radius: 12px;
     object-fit: cover;
+
+    @media screen and (max-width: $breakpoint-mobile-max) {
+      width: 100%;
+      height: 185px
+    }
   }
 
   .product-container__title {
@@ -32,6 +37,10 @@
       font-weight: 500;
       font-size: 1rem;
       color: $color-neutral-dark;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile-max) {
+      flex-direction: column;
     }
   }
 
@@ -74,5 +83,14 @@
     background: $color-primary-dark;
     padding: .5rem;
     transform: rotate(45deg);
+  }
+
+  @media screen and (max-width: $breakpoint-mobile-max) {
+    width: inherit;
+    height: auto;
+    max-height: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
   }
 }
