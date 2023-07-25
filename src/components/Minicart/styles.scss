@@ -20,28 +20,43 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem 1rem;
     position: absolute;
     top: 0;
     right: 0;
-    background: white;
-    padding: 1.5rem 2rem;
+    background: #fff;
+    padding: 0 2rem;
     z-index: 99999;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   
     .minicart__title {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: #FFF;
+      padding: 1.5rem 0;
       font-weight: 500;
       font-size: 1.2rem;
       color: $color-neutral-default;
+
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        padding: 1rem 0;
+        font-size: .9rem;
+      }
     }
   
     .minicart-content {
+      height: max-content;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       flex: 1;
+      overflow: hidden;
       
       .minicart-products-list {
         max-height: 50%;
@@ -69,7 +84,7 @@
             height: 100px;
             object-fit: cover;
 
-            @media screen and (max-width: 375px) {
+            @media screen and (max-width: $breakpoint-mobile-max) {
               width: 80px;
               height: 80px;
             }
@@ -87,7 +102,7 @@
               font-size: 1rem;
               color: $color-neutral-dark;
 
-              @media screen and (max-width: 375px) {
+              @media screen and (max-width: $breakpoint-mobile-max) {
                 font-size: .8rem;
               }
             }
@@ -97,7 +112,7 @@
               color: $color-neutral-medium;
               text-decoration: line-through;
 
-              @media screen and (max-width: 375px) {
+              @media screen and (max-width: $breakpoint-mobile-max) {
                 font-size: .6rem;
               }
             }
@@ -106,7 +121,7 @@
               font-size: 1rem;
               color: $color-neutral-dark;
 
-              @media screen and (max-width: 375px) {
+              @media screen and (max-width: $breakpoint-mobile-max) {
                 font-size: .8rem;
               }
             }
@@ -117,7 +132,7 @@
             .trash-icon {
               justify-content: flex-end;
 
-              @media screen and (max-width: 375px) {
+              @media screen and (max-width: $breakpoint-mobile-max) {
                 svg {
                   width: 24px;
                   height: 24px;
@@ -136,6 +151,11 @@
               svg {
                 width: 18px;
                 height: 18px;
+
+                @media screen and (max-width: $breakpoint-mobile-max) {
+                  width: 14px;
+                  height: 14px;
+                }
               }
               @media screen and (max-width: $breakpoint-mobile-max) {
                 width: 90px;
@@ -146,7 +166,7 @@
           }
     
           &:not(:last-child) {
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
           }
         }
       }
@@ -173,6 +193,14 @@
               font-weight: 500;
               font-size: 1rem;
               color: $color-neutral-dark;
+
+              @media screen and (max-width: $breakpoint-mobile-max) {
+                font-size: .8rem;
+              }
+            }
+
+            @media screen and (max-width: $breakpoint-mobile-max) {
+              font-size: .8rem;
             }
           }
           .subtotal__title {
@@ -204,6 +232,10 @@
           &:active {
             opacity: 1;
             background-color: #2a4e4e;
+          }
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            font-size: .8rem;
           }
         }
       }
