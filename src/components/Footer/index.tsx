@@ -1,6 +1,6 @@
 import './styles.scss'
 
-import { Logo, FacebookIcon, InstagramIcon, TwitterIcon } from '@/components/icons'
+import { Logo, FacebookIcon, InstagramIcon, TwitterIcon, HeartIcon } from '@/components/icons'
 
 export const Footer = () => {
   return (
@@ -62,7 +62,17 @@ export const Footer = () => {
         </div>
       </div>
       <span className="footer-copyright">
-        2023 all Right Reserved Term of use GREENMIND
+        <span className="copyright__text">
+          2023 all Right Reserved Term of use GREENMIND
+        </span>
+        <span className="develop-by__text">
+          Designed and Coded with
+          <HeartIcon/>
+          by
+          <a href="https://yasminhernandes.vercel.app" target='_blank'>
+            Yasmin Hernandes
+          </a>
+        </span>
       </span>
       </div>
     </footer>

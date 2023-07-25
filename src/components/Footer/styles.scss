@@ -5,17 +5,21 @@
   background: $color-primary-default;
   
   .footer-wrapper {
-    padding: 3rem 6rem;
+    padding: 3rem 6rem !important;
+    
+    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+      padding: 3rem !important;
+    }
 
     @media screen and (max-width: $breakpoint-mobile-max) {
-      padding: 1.5rem;
+      padding: 1.5rem !important;
     }
 
     .footer-top-line {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: 3rem;
+      margin-bottom: 5rem;
     
       .footer-column-left {
         display: flex;
@@ -105,13 +109,54 @@
       }
     }
     .footer-copyright {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
       font-size: 1rem;
       color: $color-neutral-medium;
 
       @media screen and (max-width: $breakpoint-mobile-max) {
-        display: block;
-        font-size: 0.875rem;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 0.7rem;
         text-align: center;
+      }
+
+      .copyright__text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .develop-by__text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        svg {
+          path {
+            fill: $color-neutral-medium;
+          }
+
+          @media screen and (max-width: $breakpoint-mobile-max) {
+            width: 18px;
+            height: 18px;
+          }
+        }
+
+        a {
+          color: $color-neutral-medium;
+          text-decoration: underline;
+          
+          &:hover {
+            color: $color-neutral-default;
+          }
+        }
+
+        @media screen and (max-width: 375px) {
+          gap: .5rem;
+        }
       }
     }
   }

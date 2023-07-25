@@ -2,7 +2,7 @@ import './styles.scss';
 import { EmailIcon } from '@/components/icons';
 import { useState, ChangeEvent, useRef } from 'react';
 
-export const Newsletter: React.FC = () => {
+export const Newsletter = () => {
   const [emailSubmit, setEmailSubmit] = useState(false);
   const [inputError, setInputError] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
