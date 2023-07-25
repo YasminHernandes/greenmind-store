@@ -332,9 +332,12 @@
             .product-card-container {
               @media screen and (max-width: $breakpoint-mobile-max) {
                 width: 100%;
-                max-width: 185px;
                 height: 100%;
                 max-height: 400px;
+              }
+
+              @media screen and (max-width: 520px) {
+                max-width: 185px;
               }
             }
 
