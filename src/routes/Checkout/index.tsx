@@ -115,6 +115,9 @@ export const Checkout = () => {
                 Total
                 <span className="cart-total-value">${Calculate.totalPrice()}</span>
               </span>
+              <span className="shipping-info">
+                products priced $30 and above incur an additional shipping fee.
+              </span>
               <button className="checkout__button">Checkout now</button>
             </div>
           </div>

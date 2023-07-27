@@ -320,6 +320,14 @@
       }
     }
 
+    .shipping-info {
+      font-weight: 400;
+      font-size: .8rem;
+      color: $color-neutral-medium;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
     .checkout__button {
       display: flex;
       align-items: center;
@@ -331,6 +339,14 @@
       font-size: 1rem;
       color: white;
       padding: 1rem 2.75rem;
+
+      &:hover {
+        opacity: .8;
+      }
+
+      &:active {
+        opacity: 1;
+      }
     }
 
     @media screen and (max-width: $breakpoint-tablet-max) {
