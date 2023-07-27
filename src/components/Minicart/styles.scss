@@ -16,7 +16,8 @@
   }
 
   .minicart-wrapper {
-    max-width: 700px;
+    width: 530px;
+    max-width: 530px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -216,7 +217,14 @@
           font-size: 1rem;
           color: $color-neutral-default;
         }
-    
+
+        .shipping-info {
+          font-weight: 400;
+          font-size: .8rem;
+          color: $color-neutral-medium;
+          text-align: center;
+        }
+
         .confirm-order__button {
           padding: 1rem;
           border-radius: 12px;

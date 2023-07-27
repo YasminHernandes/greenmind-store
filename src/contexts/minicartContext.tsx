@@ -28,13 +28,14 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
 
   let cartItems = localStorage.getItem('cart-items')
   let cartItemsArray = JSON.parse(cartItems!)
-  let shipping = localStorage.getItem('has-shipping')
+  let shipping = localStorage.getItem('has-shipping') || null
 
+
+  const [productItems, setProductItems] = useState(cartItemsArray || [])
+  
   const toggleMinicart = () => {
     setMinicart(!minicart)
-    hasShipping()
   }
-
 
   const Count = {
     decreaseCount: (id: any) => {
@@ -78,11 +79,14 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
     }
   }
 
-  const removeItem = (index: any) => {
-    let existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id == index);
-    existingProductIndex != -1 && (cartItemsArray.splice(existingProductIndex, 1))
-    localStorage.setItem('cart-items', JSON.stringify(cartItemsArray))
-  }
+  const removeItem = (productId: any) => {
+    setProductItems((prevItems: any[]) => prevItems.filter((item) => item.id !== productId));
+    
+    const updatedCartItems = cartItemsArray.filter((item: any) => item.id !== productId);
+    
+    localStorage.setItem('cart-items', JSON.stringify(updatedCartItems));
+
+  };
 
   const Calculate = {
     totalItems: () => {
@@ -108,19 +112,13 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
   }
 
   const hasShipping = () => {
-    cartItems && (
-      cartItemsArray.length > 0 ? (
-        cartItemsArray.map((product: ProductInCart) => {
-          if (Number(product.selling_price) > 30) {
-            localStorage.setItem('has-shipping', '12.00')
-          } else {
-            localStorage.removeItem('has-shipping')
-          }
-        })
-      ) : localStorage.removeItem('has-shipping')
-    )
-    return shipping
-  }
+    const shippingAvailable = cartItemsArray.some((product: ProductInCart) => Number(product.selling_price) > 30);
+  
+    shippingAvailable ? localStorage.setItem('has-shipping', '12.00')
+    : localStorage.removeItem('has-shipping');
+     
+    return shipping;
+  };
 
   return (
     <MinicartContext.Provider value={{ 

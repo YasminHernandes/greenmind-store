@@ -13,7 +13,7 @@ export const Minicart = () => {
   const cartItemsArray = JSON.parse(cartItems!)
   const { minicart, setMinicart, toggleMinicart, removeItem, Calculate, shipping, hasShipping } =  useMinicartContext()
   const minicartRef = useRef<HTMLDivElement>(null)
-
+  const shippingAvailable = hasShipping()
   
   minicart && (
     window.addEventListener('keydown', (e) => {
@@ -21,21 +21,25 @@ export const Minicart = () => {
     })
   )
 
-  //!@YasminHernandes Fix this
   useEffect(() => {
-    const handlerMinicartClose = (e: any) => {
-      if(minicartRef?.current && !minicartRef?.current.contains(e.target)) {
-        // toggleMinicart()
+    const handleCloseMinicart = (event: MouseEvent) => {
+      if (minicartRef.current && !minicartRef.current.contains(event.target as Node)) {
+        setMinicart(false);
       }
-    }
-    window.addEventListener('click', handlerMinicartClose);
-    return () => window.removeEventListener('click', handlerMinicartClose);
-  }, [minicartRef])
+    };
+
+    window.addEventListener('mousedown', handleCloseMinicart);
+    
+    return () => {
+      window.removeEventListener('mousedown', handleCloseMinicart);
+    };
+  }, []);
 
   useEffect(() => {
-    hasShipping()    
+    hasShipping()
   })
 
+  
   return (
     <>
       <div className={`minicart-overlay ${minicart && '--open'}`}>
@@ -77,7 +81,7 @@ export const Minicart = () => {
                 <span className="shipping__title">
                   Shipping
                   <span className="shipping__price">
-                    {shipping ? `$ ${hasShipping()}` : '$0'}
+                    {shipping ? `$ ${shippingAvailable}` : '$0'}
                   </span>
                 </span>
               </div>
@@ -86,6 +90,9 @@ export const Minicart = () => {
                   <span className="total__price">
                     $ {Calculate.totalPrice()}
                   </span>
+              </span>
+              <span className="shipping-info">
+                products priced $30 and above incur an additional shipping fee.
               </span>         
               <Link to={'/checkout'} reloadDocument className="confirm-order__button">Confirm Order</Link>
             </div>
