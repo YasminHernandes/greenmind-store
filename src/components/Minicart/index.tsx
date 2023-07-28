@@ -1,10 +1,10 @@
 import './styles.scss'
 
-import { MinicartEmptyIcon, TrashIcon, CloseIcon } from '@/components/icons'
 import { ProductInCart } from '@/types/product-types'
 import { useMinicartContext } from '@/hooks/useMinicartContext'
 import { useEffect, useRef } from 'react'
-import { Counter } from '@/components'
+import { Counter, BuyNow } from '@/components'
+import { MinicartEmptyIcon, TrashIcon, CloseIcon } from '@/components/icons'
 import { Link } from 'react-router-dom'
 
 
@@ -120,9 +120,7 @@ export const Minicart = () => {
                 <p className="minicart-empty__text">
                   Please come back and explore to add products to your shopping cart.
                 </p>
-                <button className="close-minicart-empty" onClick={toggleMinicart}>
-                  Buy now
-                </button>
+                <BuyNow/>
               </div>
             </>
           )}

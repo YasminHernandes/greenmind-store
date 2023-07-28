@@ -269,25 +269,6 @@
           text-align: center;
         }
       }
-
-      .close-minicart-empty {
-        border-radius: 12px;
-        background-color: $color-primary-dark;
-        padding: 1rem 4rem;
-        margin-top: 1.5rem;
-        font-weight: 500;
-        font-size: 1rem;
-        color: white;
-
-        &:hover {
-          opacity: .8;
-        }
-
-        &:active {
-          opacity: 1;
-          background-color: #2a4e4e;
-        }
-      }
     }
     @media screen and (max-width: 520px) {
       width: 100%;
