@@ -1,6 +1,6 @@
 import './styles.scss';
 import { EmailIcon } from '@/components/icons';
-import { useState, ChangeEvent, useRef } from 'react';
+import { useState, useRef } from 'react';
 
 export const Newsletter = () => {
   const [emailSubmit, setEmailSubmit] = useState(false);
@@ -13,7 +13,7 @@ export const Newsletter = () => {
     setInputError(!isValid);
   };
 
-  const handleSubmit = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (event: Event) => {
     event.preventDefault();
     inputRef?.current?.checkValidity() && setEmailSubmit(true);
     handleChange()
@@ -25,7 +25,9 @@ export const Newsletter = () => {
         <div className="newsletter-wrapper default-max-width-setup">
           <div className="newsletter-content">
             <div className="newsletter-content__title">
-              <h2 className="newsletter__title">Join our newsletter</h2>
+              <h2 className="newsletter__title">
+                Join our newsletter
+              </h2>
               <span className="newsletter__text">
                 Stay on top of the latest trends in gardening and plant decoration
               </span>
@@ -35,7 +37,9 @@ export const Newsletter = () => {
                 <form>
                   <div className="newsletter-input-container">
                     <div className="newsletter-input">
-                      <label htmlFor="newsletter-email" className="sr-only">Email</label>
+                      <label htmlFor="newsletter-email" className="sr-only">
+                        Email
+                      </label>
                       <input
                         type="email"
                         name="newsletter-email"
@@ -53,7 +57,9 @@ export const Newsletter = () => {
                       Please enter a valid email address
                     </span>
                   </div>
-                  <button type="submit" className="newsletter__button" onClick={handleSubmit}>Send</button>
+                  <button type="submit" className="newsletter__button" onClick={handleSubmit}>
+                    Send
+                  </button>
                 </form>
               </div>
             ) : (

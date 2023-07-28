@@ -50,17 +50,21 @@ export const Dropdown = ({ placeholder, options }: Props) => {
         { getTitle() }
         <ArrowDown/>
       </div>
+
       { showMenu && (
         <div className="dropdown-container__options">
           {options.map(option => (
-            <div key={option.value} 
-                onClick={handleOptionClick}
-                className="dropdown-option">
+            <div 
+              key={option.value} 
+              onClick={handleOptionClick}
+              className="dropdown-option"
+            >
               {option.label}
             </div>
           ))}
         </div>
       )}
+      
     </div>
   )
 }

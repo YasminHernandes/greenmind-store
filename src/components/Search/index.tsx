@@ -12,7 +12,13 @@ export const Search = ({className, id, placeholder} : Props) => {
   return (
     <div className={className}>
       <div className="input-search-container">
-        <input type="text" name="search" id={id} className="search" placeholder={placeholder}/>
+        <input 
+          type="text"
+          name="search" 
+          id={id} 
+          className="search" 
+          placeholder={placeholder}
+        />
         <button type='submit' className="button-search">
           <SearchIcon className="search-icon"/>
         </button>

@@ -18,11 +18,11 @@ export const ProductTypes = ({...props}) => {
   useEffect(() => {
     const arrayAux: string[] = [];
     const typeProducts = products.map((item: ProductType) => item.type);
+
     typeProducts.forEach((type: string) => {
-      if (!arrayAux.includes(type)) {
-        arrayAux.push(type);
-      }
+      !arrayAux.includes(type) && arrayAux.push(type)
     });
+
     setProductsFiltered(arrayAux)
   }, [products])
 
@@ -40,16 +40,16 @@ export const ProductTypes = ({...props}) => {
           placeholder="Search by type"/>
         <div className="types-options-container">
           <div className="types-options">
-            { productsFiltered.map((product: string) => (
-              <div className="type-option" key={product}>
+            { productsFiltered.map((type: string) => (
+              <div className="type-option" key={type}>
                 <label htmlFor="type" className="type__label">
                   <input type="checkbox" 
                       name="type" 
-                      id={product} 
+                      id={type} 
                       className="search-type__input" 
-                      title={`type ${product}`}
+                      title={`type ${type}`}
                     />
-                  {product.toUpperCase()}
+                  {type.toUpperCase()}
                   <span className="input-checkmark"></span>
                 </label>
               </div>

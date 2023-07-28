@@ -8,7 +8,10 @@ export const BackButton = () => {
 
   return (
       <div className="default-max-width-setup button-container">
-        <button className="back__button" onClick={() => navigate(-1)}>
+        <button 
+          className="back__button" 
+          onClick={() => navigate(-1)}
+        >
           <ArrowNavigate/>
           Back
         </button>

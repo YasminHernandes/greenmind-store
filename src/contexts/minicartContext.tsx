@@ -5,12 +5,12 @@ export const MinicartContext = createContext({
   minicart: false,
   setMinicart: (value: boolean) => {},
   toggleMinicart: () => {},
-  count: {},
-  setCount: (id: string, value: number) => {},
+  countValue: {},
+  setCountValue: (id: string, value: number) => {},
   Count: {},
   Calculate: {},
   handleAddToCart: (id: string, product: ProductType[]) => {},
-  removeItem: (index: any) => {},
+  removeItem: (index: string) => {},
   shipping: '',
   hasShipping: () => {},
 })
@@ -21,15 +21,14 @@ type MinicartProviderProps = {
 
 export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
   const [ minicart, setMinicart ] = useState(false)
-  const [ count, setCount ] = useState({
+  const [ countValue, setCountValue ] = useState({
     id: '',
     value: 1
   })
 
   let cartItems = localStorage.getItem('cart-items')
   let cartItemsArray = JSON.parse(cartItems!)
-  let shipping = localStorage.getItem('has-shipping') || null
-
+  let shipping = localStorage.getItem('has-shipping') || ''
 
   const [productItems, setProductItems] = useState(cartItemsArray || [])
   
@@ -38,8 +37,8 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
   }
 
   const Count = {
-    decreaseCount: (id: any) => {
-      setCount({id: id, value: count.value - 1})
+    decreaseCount: (id: string) => {
+      setCountValue({id: id, value: countValue.value - 1})
   
       let existProductIndex = cartItemsArray.findIndex((item: { id: string }) => item.id == id);
       existProductIndex != -1 && (
@@ -48,9 +47,10 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
       )
       localStorage.setItem('cart-items', JSON.stringify(cartItemsArray));
     },
+
     increaseCount: (id: any) => {
-      setCount({id: id, value: count.value + 1})
-  
+      setCountValue({id: id, value: countValue.value + 1})
+
       let existProductIndex = cartItemsArray.findIndex((item: { id: string }) => item.id == id);
       existProductIndex != -1 && (
         cartItemsArray[existProductIndex].quantity += 1
@@ -66,11 +66,8 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
       let cartItemsArray = JSON.parse(cartItems);
       let existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id === id);
       
-      if(existingProductIndex != -1){
-        cartItemsArray[existingProductIndex].quantity += 1
-      } else {
-        cartItemsArray.push({ ...product, quantity: 1, id: id })
-      }
+      existingProductIndex != -1 ? cartItemsArray[existingProductIndex].quantity += 1
+      : cartItemsArray.push({ ...product, quantity: 1, id: id })
       
       localStorage.setItem('cart-items', JSON.stringify(cartItemsArray));
     } else {
@@ -79,28 +76,26 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
     }
   }
 
-  const removeItem = (productId: any) => {
+  const removeItem = (productId: string) => {
     setProductItems((prevItems: any[]) => prevItems.filter((item) => item.id !== productId));
     
     const updatedCartItems = cartItemsArray.filter((item: any) => item.id !== productId);
     
     localStorage.setItem('cart-items', JSON.stringify(updatedCartItems));
 
-  };
+  }
 
   const Calculate = {
     totalItems: () => {
       let totalItems = 0;
-      if(cartItems) {
-        totalItems = cartItemsArray.reduce((acc: number, item: { quantity: number; }) => acc + item.quantity, 0);
-      }
+      cartItems && (totalItems = cartItemsArray.reduce((acc: number, item: { quantity: number; }) => acc + item.quantity, 0))
   
       return totalItems;
     },
     subtotalPrice: () => {
       let subtotal = 0;
       
-      cartItems && ( subtotal = cartItemsArray.reduce((acc: number, item: {quantity: number, selling_price: string}) => 
+      cartItems && (subtotal = cartItemsArray.reduce((acc: number, item: {quantity: number, selling_price: string}) => 
         acc + (item.quantity * Number(item.selling_price)), 0))
 
       return subtotal.toFixed(2);
@@ -125,8 +120,8 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
       minicart,
       setMinicart,
       toggleMinicart,
-      count,
-      setCount,
+      countValue,
+      setCountValue,
       Count,
       Calculate,
       handleAddToCart,

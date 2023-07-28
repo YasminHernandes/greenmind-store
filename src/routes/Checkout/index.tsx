@@ -3,7 +3,7 @@ import { TrashIcon } from '@/components/icons';
 import { BackButton } from '@/components';
 import { ProductInCart } from '@/types/product-types';
 import { useMinicartContext } from '@/hooks/useMinicartContext';
-import { Count } from '@/components';
+import { Counter } from '@/components';
 
 export const Checkout = () => {
   const cartItemsArray = JSON.parse(localStorage.getItem('cart-items')!);
@@ -20,7 +20,9 @@ export const Checkout = () => {
             <div className="cart-items">
               <h1 className='cart__title'>
                 Cart
-                <span className="total-items">{cartItemsArray.length} items in cart</span>
+                <span className="total-items">
+                  {cartItemsArray.length} items in cart
+                </span>
               </h1>
               <table>
                   <thead>
@@ -48,7 +50,7 @@ export const Checkout = () => {
                       </td>
                       <td>
                         <div className="product-count-container">
-                          <Count id={product.id} quantity={product.quantity}/>
+                          <Counter id={product.id} quantity={product.quantity}/>
                           <span onClick={() => removeItem(product.id)}>
                             <TrashIcon />
                             Remove
@@ -73,7 +75,11 @@ export const Checkout = () => {
                 { cartItemsArray.map((product: ProductInCart) => (
                   <div className="product-container" key={product.id}>
                     <div className="product-image-and-info">
-                      <img src={product.img} alt={product.img} className="product__image"/>
+                      <img 
+                        src={product.img} 
+                        alt={product.img} 
+                        className="product__image"
+                      />
                       <div className="product-info-container">
                         <h2 className="product-name">
                           {product.name}
@@ -92,7 +98,10 @@ export const Checkout = () => {
                       </div>
                     </div>
                     <div className="product-count-container">
-                      <Count id={product.id} quantity={product.quantity}/>
+                      <Counter
+                        id={product.id} 
+                        quantity={product.quantity}
+                      />
                       <span onClick={() => removeItem(product.id)}>
                         <TrashIcon />
                         Remove
@@ -105,20 +114,28 @@ export const Checkout = () => {
             <div className="cart-total-price">
               <span className="cart-subtotal cart-value">
                 Subtotal
-                <span className="cart-subtotal-value --value">${Calculate.subtotalPrice()}</span>
+                <span className="cart-subtotal-value --value">
+                  ${Calculate.subtotalPrice()}
+                </span>
               </span>
               <span className="cart-shipping cart-value">
                 Shipping
-                <span className="cart-shipping-value --value">{shipping ? `$ ${hasShipping()}` : `$0`}</span>
+                <span className="cart-shipping-value --value">
+                  {shipping ? `$ ${hasShipping()}` : `$0`}
+                </span>
               </span>
               <span className="cart-total">
                 Total
-                <span className="cart-total-value">${Calculate.totalPrice()}</span>
+                <span className="cart-total-value">
+                  ${Calculate.totalPrice()}
+                </span>
               </span>
               <span className="shipping-info">
                 products priced $30 and above incur an additional shipping fee.
               </span>
-              <button className="checkout__button">Checkout now</button>
+              <button className="checkout__button">
+                Checkout now
+              </button>
             </div>
           </div>
         </div>

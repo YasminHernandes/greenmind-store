@@ -39,9 +39,15 @@ export const Header = () => {
                   Login
                   <Profile className="profile-menu"/>
                 </a>
-                <a href="\" className='menu-item'>Account</a>
-                <a href="\" className='menu-item'>My orders</a>
-                <a href="\" className='menu-item'>My wishlist</a>
+                <a href="\" className='menu-item'>
+                  Account
+                </a>
+                <a href="\" className='menu-item'>
+                  My orders
+                </a>
+                <a href="\" className='menu-item'>
+                  My wishlist
+                </a>
               </div>
             </div>
             <ul className="nav__list">
@@ -77,7 +83,9 @@ export const Header = () => {
           <div className="header-column-right">
             <div className="minicart-container" onClick={toggleMinicart}>
               <MinicartIcon className="minicart-icon header-icon"/>
-              <span className="count">{ Calculate.totalItems() } </span>
+              <span className="count">
+                { Calculate.totalItems() }
+              </span>
             </div>
             <Profile className="profile header-icon"/>
           </div>

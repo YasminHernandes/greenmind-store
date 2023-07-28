@@ -22,6 +22,7 @@ import { ProductTypes } from '@/components/ProductTypes'
 
 export const ProductsCatalog = () => {  
   const { data: products } = useApi<ProductType[]>('https://plantsapi.vercel.app');
+  
   const options = [
     { value: SortByType.RELEVANCY, label: SortByType.RELEVANCY },
     { value: SortByType.HIGHEST_TO_LOWEST, label: SortByType.HIGHEST_TO_LOWEST },
@@ -30,7 +31,6 @@ export const ProductsCatalog = () => {
     { value: SortByType.BESTSELLERS, label: SortByType.BESTSELLERS }
   ]
   
-
   return (
     <>
       <div className="catalog-wrapper --wrapper">
@@ -44,7 +44,11 @@ export const ProductsCatalog = () => {
                   <p className="hero__text">
                     we offer many different types of products with fewer variations in each category.
                   </p>
-                  <Search className="search-products-wrapper" id="search-products" placeholder="What are you looking for?"/>
+                  <Search 
+                    className="search-products-wrapper" 
+                    id="search-products" 
+                    placeholder="What are you looking for?"
+                  />
                 </div>
             </div>
           </div>
@@ -67,7 +71,9 @@ export const ProductsCatalog = () => {
                 <div className="products-cards-container">
                   <div className="products-count-and-types-wrapper">
                     <div className="count-and-sort">
-                      <span className="products-count">Showed 30 items</span>
+                      <span className="products-count">
+                        Showed 30 items
+                      </span>
                       <div className="products-sort">
                         <span className="sort__text">
                           Sort by
@@ -87,6 +93,7 @@ export const ProductsCatalog = () => {
                           price={product.price}
                           sellingPrice={product.selling_price}
                           img={product.img}
+                          alt={product.img}
                           soldOut={(product.sold_out === 'true') ? 'sold-out' : ''}
                           hasButton={true}
                         />
@@ -108,6 +115,7 @@ export const ProductsCatalog = () => {
                         price={product.price.replace(',', '.')}
                         sellingPrice={product.selling_price.replace(',', '.')}
                         img={product.img}
+                        alt={product.img}
                         soldOut={(product.sold_out === 'true') ? 'sold-out' : ''}
                         hasButton={true}
                       />
@@ -124,11 +132,17 @@ export const ProductsCatalog = () => {
             <div className="banner-content">
               <h3 className="banner__title">
                 Transform 
-                <span className="banner__text">any environment into a natural and cozy haven with plants.</span>
+                <span className="banner__text">
+                  any environment into a natural and cozy haven with plants.
+                </span>
               </h3>
-              <img src={banner} alt="Banner footer image" className="banner-image" />
-              <PlantDrawBanner  className="banner-stroke"/>
-              <PlantDrawBanner  className="banner-stroke"/>
+              <img 
+                src={banner} 
+                alt="Banner footer image" 
+                className="banner-image" 
+              />
+              <PlantDrawBanner className="banner-stroke"/>
+              <PlantDrawBanner className="banner-stroke"/>
             </div>
           </div>
         </section>

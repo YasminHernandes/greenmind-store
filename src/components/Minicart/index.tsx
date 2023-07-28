@@ -4,7 +4,7 @@ import { MinicartEmptyIcon, TrashIcon, CloseIcon } from '@/components/icons'
 import { ProductInCart } from '@/types/product-types'
 import { useMinicartContext } from '@/hooks/useMinicartContext'
 import { useEffect, useRef } from 'react'
-import { Count } from '@/components'
+import { Counter } from '@/components'
 import { Link } from 'react-router-dom'
 
 
@@ -54,18 +54,25 @@ export const Minicart = () => {
             <ul className="minicart-products-list">
               {cartItemsArray.map((product: ProductInCart) => (
                 <li className="product-container__item" key={product.id}>
-                <img src={product.img} 
-                    alt={`${product.name} image`}
-                    title={`${product.name} image`} 
+                <img 
+                  src={product.img} 
+                  alt={`${product.name} image`}
+                  title={`${product.name} image`} 
                 />
                 <div className="minicart-product-info">
-                  <p className="product-name">{product.name}</p>
-                  <p className="product-price">${product.price}</p>
-                  <p className="product-selling-price">$ {product.selling_price}</p>
+                  <p className="product-name">
+                    {product.name}
+                  </p>
+                  <p className="product-price">
+                    ${product.price}
+                  </p>
+                  <p className="product-selling-price">
+                    $ {product.selling_price}
+                  </p>
                 </div>
                 <div className="trash-and-count-container">
                   <TrashIcon onClick={() => removeItem(product.id)} />
-                  <Count id={product.id} quantity={product.quantity}/>
+                  <Counter id={product.id} quantity={product.quantity}/>
                 </div>
                 </li>
               ))}
@@ -94,7 +101,9 @@ export const Minicart = () => {
               <span className="shipping-info">
                 products priced $30 and above incur an additional shipping fee.
               </span>         
-              <Link to={'/checkout'} reloadDocument className="confirm-order__button">Confirm Order</Link>
+              <Link to={'/checkout'} reloadDocument className="confirm-order__button">
+                Confirm Order
+              </Link>
             </div>
           </div>
           </> 

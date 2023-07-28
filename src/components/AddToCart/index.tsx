@@ -27,7 +27,11 @@ export const AddToCart = ({id}: Props) => {
 
   return (
     <>
-      <div className="product-add-to-cart__button" id={id} onClick={() => handleClickAddToCart(id)}>
+      <div 
+        className="product-add-to-cart__button" 
+        id={id} 
+        onClick={() => handleClickAddToCart(id)}
+      >
         <CartIcon id={id}/>
         Add to cart
       </div>

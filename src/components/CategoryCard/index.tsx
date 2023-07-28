@@ -9,11 +9,20 @@ type Props = {
 export const CategoryCard = ({img, title}: Props) => {
   return (
     <div className="category__card">
-      <img src={img} alt="Artificial Plants Image" className="cartegory__image" />
+      <img 
+        src={img} 
+        alt="Artificial Plants Image" 
+        className="cartegory__image"
+      />
       <p className="category__title">
         {title}
       </p>
-      <a href="#" className="category__button">See more</a>
+      <a 
+        href="#" 
+        className="category__button"
+      >
+        See more
+      </a>
     </div>
   )
 }
