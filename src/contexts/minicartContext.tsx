@@ -107,7 +107,7 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
   }
 
   const hasShipping = () => {
-    const shippingAvailable = cartItemsArray.some((product: ProductInCart) => Number(product.selling_price) > 30);
+    const shippingAvailable = cartItems && cartItemsArray.some((product: ProductInCart) => Number(product.selling_price) > 30);
   
     shippingAvailable ? localStorage.setItem('has-shipping', '12.00')
     : localStorage.removeItem('has-shipping');
