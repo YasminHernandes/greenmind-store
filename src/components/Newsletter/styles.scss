@@ -66,6 +66,7 @@
             display: flex;
             flex-direction: column;
             flex: 1;
+            position: relative;
             
             .newsletter-input {
               position: relative;
@@ -94,7 +95,7 @@
                   border: 1px solid $color-primary-dark;
                   outline: none;
     
-                  + .email-icon {
+                  ~.email-icon {
                     svg {
                       path {
                         &:first-child {
@@ -109,7 +110,7 @@
                 }
                 &:valid {
                   border: 1px solid $color-primary-dark !important;
-                  + .email-icon {
+                  ~ .email-icon {
                     svg {
                       path {
                         &:first-child {
@@ -124,6 +125,19 @@
                 }
                 &.error--active {
                   border: 1px solid $color-feedback-red; 
+
+                  ~.email-icon {
+                    svg {
+                      path {
+                        &:first-child {
+                          fill: $color-feedback-red;
+                        }
+                        &:last-child {
+                          stroke: $color-feedback-red;
+                        }
+                      }
+                    }
+                  }
                 }
 
                 @media screen and (max-width: $breakpoint-mobile-max) {
@@ -132,7 +146,7 @@
               }
               .email-icon {
                 position: absolute;
-                top: 50%;
+                top: 30px;
                 left: 40px;
                 transform: translateY(-50%);
                 
@@ -164,8 +178,9 @@
                 }
               }
             }
-            .error {
+            .error-message {
               display: none;
+            
               &.error--active {
                 display: flex;
                 font-weight: 500;
@@ -208,6 +223,7 @@
 
           @media screen and (max-width: $breakpoint-mobile-max) {
             flex-direction: column;
+            gap: 2rem;
           }
         }
 

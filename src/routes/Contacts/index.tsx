@@ -1,9 +1,11 @@
 import './styles.scss'
 
 import { MapIcon, PhoneContactIcon, EmailIcon, HoursIcon } from '@/components/icons'
+import { useEmailValidation } from '../../hooks/useEmailValidation';
 
 export const Contacts = () => {
-  
+  const { inputError, setInputError, handleChange, inputRef } = useEmailValidation();
+
   return (
     <>
       <div className="contact-wrapper --wrapper">
@@ -49,14 +51,22 @@ export const Contacts = () => {
                     >
                       Email
                     </label>
-                    <input 
-                      type="email" 
-                      name="email" 
-                      id="email" 
-                      placeholder="Email" 
-                      className="contact__input" 
+                    <div className="email-container">
+                    <input
+                      type="email"
+                      name="contact-email"
+                      id="contact-email"
+                      className={`input contact__input ${inputError ? 'error--active' : ''}`}
+                      placeholder="email@email.com"
+                      onBlur={() => setInputError(false)}
+                      onChange={handleChange}
+                      ref={inputRef}
                       required
                     />
+                    <span className={`error-message ${inputError ? 'error--active' : ''}`}>
+                      Please enter a valid email address
+                    </span>
+                    </div>
 
                     <label 
                       htmlFor="message" 
