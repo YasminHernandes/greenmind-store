@@ -8,13 +8,7 @@
   top: 0;
   right: 0;
   background: rgba(0,0,0,.5);
-  transform: translateX(100%);
-  transition: translate .4s ease-in-out .8s;
   
-  &.--open {
-    transform: translateX(0);
-  }
-
   .minicart-wrapper {
     width: 530px;
     max-width: 530px;
@@ -28,6 +22,8 @@
     padding: 0 2rem;
     z-index: 99999;
     overflow-y: auto;
+    animation: slideLeft .4s linear;
+    transition: all .4s ease-in-out .8s;
 
     &::-webkit-scrollbar {
       display: none;
@@ -275,3 +271,13 @@
     }
   }
 }
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
