@@ -18,11 +18,11 @@
 
         .newsletter__title {
           font-weight: 600;
-          font-size: 2.5rem;
+          font-size: 2.3rem;
           line-height: 60px;
           color: $color-primary-dark;
 
-          @media screen and (max-width: $breakpoint-mobile-max) {
+          @media screen and (max-width: $breakpoint-tablet-max) {
             font-size: 1.6rem;
             line-height: normal;
             text-align: center;
@@ -30,25 +30,25 @@
         }
 
         .newsletter__text {
-          width: 90%;
+          width: 100%;
           display: flex;
           font-weight: 400;
           font-size: 1rem;
           color: $color-neutral-medium;
 
-          @media screen and (max-width: $breakpoint-mobile-max) {
+          @media screen and (max-width: $breakpoint-tablet-max) {
             width: 100%;
             margin-top: .25rem;
             font-size: .75rem;
             text-align: center;
             justify-content: center;
           }
-          @media screen and (min-width: $breakpoint-mobile-max) and (max-width: $breakpoint-tablet-max) {
+          @media screen and (max-width: $breakpoint-tablet-max) {
             justify-content: center;
           }
         }
 
-        @media screen and (max-width: $breakpoint-mobile-max) {
+        @media screen and (max-width: $breakpoint-tablet-max) {
           width: 100%;
           padding: 0;
         }
@@ -86,7 +86,7 @@
                   font-size: 1rem;
                   color: $color-neutral-medium;
 
-                  @media screen and (max-width: $breakpoint-mobile-max) {
+                  @media screen and (max-width: $breakpoint-tablet-max) {
                     font-size: .8rem;
                   }
                 }
@@ -140,7 +140,7 @@
                   }
                 }
 
-                @media screen and (max-width: $breakpoint-mobile-max) {
+                @media screen and (max-width: $breakpoint-tablet-max) {
                   padding-left: calc(2rem + 40px);
                 }
               }
@@ -173,7 +173,7 @@
                   }
                 }
 
-                @media screen and (max-width: $breakpoint-mobile-max) {
+                @media screen and (max-width: $breakpoint-tablet-max) {
                   left: 20px;
                 }
               }
@@ -212,7 +212,7 @@
               opacity: 1;
             }
   
-            @media screen and (max-width: $breakpoint-mobile-max) {
+            @media screen and (max-width: $breakpoint-tablet-max) {
               width: 100%
             }
             @media screen and (min-width: $breakpoint-tablet-max) and (max-width: 1440px) {
@@ -221,14 +221,13 @@
             }
           }
 
-          @media screen and (max-width: $breakpoint-mobile-max) {
+          @media screen and (max-width: $breakpoint-tablet-max) {
             flex-direction: column;
-            gap: 2rem;
           }
         }
 
 
-        @media screen and (max-width: $breakpoint-mobile-max) {
+        @media screen and (max-width: $breakpoint-tablet-max) {
           width: 100%;
           flex-direction: column;
         }
@@ -242,12 +241,12 @@
         color: $color-primary-dark;
       }
       
-      @media screen and (max-width: $breakpoint-mobile-max) {
+      @media screen and (max-width: $breakpoint-tablet-max) {
         flex-direction: column;
         margin-top: 2rem;
       }
 
-      @media screen and (max-width: $breakpoint-mobile-max) {
+      @media screen and (max-width: $breakpoint-tablet-max) {
         width: 100%;
         margin: 0;
       }
@@ -264,7 +263,7 @@
         color: $color-neutral-medium;
         text-align: center;
 
-        @media screen and (max-width: $breakpoint-mobile-max) {
+        @media screen and (max-width: $breakpoint-tablet-max) {
           font-size: 0.75rem;
         }
         @media screen and (min-width: 375px) and (max-width: $breakpoint-tablet-max) {
