@@ -5,7 +5,7 @@
   background: $color-primary-default;
   
   .footer-wrapper {
-    padding: 3rem 6rem !important;
+    padding: 3rem 1rem !important;
     
     @media screen and (min-width: 1024px) and (max-width: 1440px) {
       padding: 3rem !important;
@@ -115,10 +115,13 @@
       font-size: 1rem;
       color: $color-neutral-medium;
 
+      @media screen and (max-width: $breakpoint-tablet-max) {
+        font-size: 0.7rem;
+      }
+
       @media screen and (max-width: $breakpoint-mobile-max) {
         flex-direction: column;
         justify-content: center;
-        font-size: 0.7rem;
         text-align: center;
       }
 
@@ -139,7 +142,7 @@
             fill: $color-neutral-medium;
           }
 
-          @media screen and (max-width: $breakpoint-mobile-max) {
+          @media screen and (max-width: $breakpoint-tablet-max) {
             width: 18px;
             height: 18px;
           }
