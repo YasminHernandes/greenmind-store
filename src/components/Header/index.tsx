@@ -1,6 +1,6 @@
 import './styles.scss'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Minicart } from '@/components'
 import { useMinicartContext } from '@/hooks/useMinicartContext'
@@ -11,16 +11,31 @@ export const Header = () => {
   const pathName = window.location.pathname.split('/').slice(-1)  
   const { minicart, toggleMinicart, Calculate } = useMinicartContext()
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen)
   }
   
-  menuOpen && (
+  menuOpen ? (
     window.addEventListener('keydown', (e) => {
       e.key === 'Escape' && setMenuOpen(false)
-    })
-  )
+    }),
+    document.body.style.overflow = 'hidden'
+  ) : document.body.style.overflow = 'auto'
+
+
+  useEffect(() => {
+    const handleCloseMenu = (event: MouseEvent) => {
+      (menuRef.current && !menuRef.current.contains(event.target as Node)) 
+      && setMenuOpen(false);
+    }
+
+    window.addEventListener('mousedown', handleCloseMenu)
+    return () => {
+      window.removeEventListener('mousedown', handleCloseMenu)
+    }
+  }, [])
 
   return (
     <>
@@ -28,26 +43,26 @@ export const Header = () => {
         <div className="header-wrapper default-max-width-setup">
           <MenuMobile onClick={toggleMenu}/>
           <Logo className='logo-header'/>
-          <nav className={`nav ${menuOpen ? '--open' : ''}`}>
+          <nav className={`nav ${menuOpen ? '--open' : ''}`} ref={menuRef}>
             <div className="nav-container__mobile">
               <div className="menu-mobile__header">
                 <CloseIcon onClick={toggleMenu}/>
                 <Logo className='logo-menu'/>
               </div>
               <div className="menu-mobile__login">
-                <a href='\' className="login-title menu-item">
+                <NavLink to='/' reloadDocument className="login-title menu-item">
                   Login
                   <Profile className="profile-menu"/>
-                </a>
-                <a href="\" className='menu-item'>
+                </NavLink>
+                <NavLink to="/" reloadDocument className='menu-item'>
                   Account
-                </a>
-                <a href="\" className='menu-item'>
+                </NavLink>
+                <NavLink to="/" reloadDocument className='menu-item'>
                   My orders
-                </a>
-                <a href="\" className='menu-item'>
+                </NavLink>
+                <NavLink to="/" reloadDocument className='menu-item'>
                   My wishlist
-                </a>
+                </NavLink>
               </div>
             </div>
             <ul className="nav__list">

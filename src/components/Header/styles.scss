@@ -42,7 +42,8 @@
 
           .menu-mobile__header {
             .close-icon {
-              justify-content: flex-end;
+              width: max-content;
+              margin-left: auto;
 
               svg {
                 width: 40px;
@@ -50,6 +51,7 @@
               }
             }
             .logo-menu {
+              width: max-content;
               padding: 1rem 0;
               svg {
                 width: 120px;
@@ -59,7 +61,6 @@
           .menu-mobile__login {
             display: flex;
             flex-direction: column;
-            gap: .5rem;
             border-bottom: 1px solid $color-neutral-medium;
             padding-bottom: 2rem;
             margin-bottom: 2rem;
@@ -86,17 +87,25 @@
               }
             }
             .menu-item {
+              width: max-content;
               border-radius: 8px;
+              padding: .5rem 1rem;
           
               &:not(:first-child) {
                 @extend .login-title;
                 font-weight: 300;
                 padding-left: 1rem;
               }
+
+              &:hover {
+                background-color: rgb(193 220 220 /.4);
+                color: $color-neutral-default;
+              }
+
+              &:not(:first-child) {
+                margin-left: .5rem;
+              }
             }
-            .menu-item:hover {
-              background-color: rgb(193 220 220 /.4);
-            } 
           }
         }
       }
@@ -152,20 +161,20 @@
           padding: 1rem 1.5rem;
 
           .nav__list {
-            gap: 1.5rem;
+            gap: 0;
             flex-direction: column;
 
             .nav__item {
+              width: max-content;
               display: flex;
-              padding: .5rem 0;
               border-radius: 8px;
-
-              &:hover {
-                background-color: rgb(193 220 220 /.4);
-              }
+              
+                &:hover {
+                  background-color: rgb(193 220 220 /.4);
+                }
 
               .nav__link {
-                width: 100%;
+                padding: .5rem 1rem;
                 margin: 0;
 
                 &:not(.active):before {
