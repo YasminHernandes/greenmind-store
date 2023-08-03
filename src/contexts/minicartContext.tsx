@@ -92,6 +92,7 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
 
   const removeItem = (productId: string) => {
     setProductItems((prevItems: any[]) => prevItems.filter((item) => item.id !== productId));
+    localStorage.setItem('product-items', productItems)
     
     const updatedCartItems = cartItemsArray.filter((item: any) => item.id !== productId);
     
