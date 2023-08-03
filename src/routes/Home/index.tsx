@@ -22,12 +22,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay } from 'swiper';
 import { person } from '@/assets/data'
 import { useApi } from '@/hooks/useApi'
-import { Product } from '@/types/product-types'
+import { ProductTypes } from '@/types/product-types.d.ts'
 
 
 
 export const Home = () => {
-  const { data: product } = useApi<Product[]>('https://plantsapi.vercel.app')
+  const { data: product } = useApi('https://plantsapi.vercel.app')
   const newProduct = product!.splice(0, 3)
 
   SwiperCore.use([Autoplay])
@@ -77,7 +77,7 @@ export const Home = () => {
             </div>
             <div className="home-products__cards">
               {
-                newProduct.map((product: Product) => {
+                newProduct.map((product: typeof ProductTypes) => {
                   return (
                     <ProductCard 
                       key={product.id}

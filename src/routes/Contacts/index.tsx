@@ -1,7 +1,7 @@
 import './styles.scss'
 
 import { MapIcon, PhoneContactIcon, EmailIcon, HoursIcon } from '@/components/icons'
-import { useEmailValidation } from '../../hooks/useEmailValidation';
+import { useEmailValidation } from '@/hooks/useEmailValidation';
 
 export const Contacts = () => {
   const { inputError, setInputError, handleChange, inputRef } = useEmailValidation();

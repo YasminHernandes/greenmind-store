@@ -1,8 +1,8 @@
-import { ProductType } from "../types/product-types";
+import { ProductTypes } from "../types/product-types";
 import { useApi } from "./useApi";
 
 export const useProduct = (id: string) => {
-  const { data: products } = useApi<ProductType[]>('https://plantsapi.vercel.app');
+  const { data: products } = useApi<ProductTypes[]>('https://plantsapi.vercel.app');
 
   const product = products.find(product => product.id === id) || null;
 

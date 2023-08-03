@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { ProductType } from "@/types/product-types";
+import { ProductTypes } from "@/types/product-types.d.ts";
 import { useApi } from "@/hooks/useApi";
 import { ArrowDown } from "@/components/icons";
 import { Search } from "@/components";
 
-export const ProductTypes = ({...props}) => {
+export const ProductFilter = ({...props}) => {
   
-  const { data: products } = useApi<ProductType[]>('https://plantsapi.vercel.app');
+  const { data: products } = useApi('https://plantsapi.vercel.app');
   const [productsFiltered, setProductsFiltered] = useState<string[]>([]);
   const [openTypes, setOpenTypes] = useState(false);
 
@@ -17,7 +17,7 @@ export const ProductTypes = ({...props}) => {
   
   useEffect(() => {
     const arrayAux: string[] = [];
-    const typeProducts = products.map((item: ProductType) => item.type);
+    const typeProducts = products.map((item: typeof ProductTypes) => item.type);
 
     typeProducts.forEach((type: string) => {
       !arrayAux.includes(type) && arrayAux.push(type)

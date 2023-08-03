@@ -1,17 +1,31 @@
 import { ReactNode, createContext, useState } from "react"
-import { ProductType, ProductInCart } from '@/types/product-types'
+import { ProductTypes, ProductInCart } from '@/types/product-types'
 
-export const MinicartContext = createContext({
-  minicart: false,
-  setMinicart: (value: boolean) => {},
-  toggleMinicart: () => {},
+type MinicartContextType = {
+  minicart: boolean,
+  setMinicart: (value: boolean) => void,
+  toggleMinicart: () => void,
   countValue: {},
-  setCountValue: (id: string, value: number) => {},
+  setCountValue: React.Dispatch<React.SetStateAction<{ id: string; value: number }>>,
   Count: {},
   Calculate: {},
-  handleAddToCart: (id: string, product: ProductType[]) => {},
-  removeItem: (index: string) => {},
-  shipping: '',
+  handleAddToCart: (id: string, product: typeof ProductTypes[]) => void,
+  removeItem: (index: string) => void,
+  shipping: {} | null,
+  hasShipping: () => void,
+}
+
+export const MinicartContext = createContext<MinicartContextType>({
+  minicart: false,
+  setMinicart: () => {},
+  toggleMinicart: () => {},
+  countValue: {},
+  setCountValue: () => {},
+  Count: {},
+  Calculate: {},
+  handleAddToCart: () => {},
+  removeItem: () => {},
+  shipping: {},
   hasShipping: () => {},
 })
 
@@ -28,7 +42,7 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
 
   let cartItems = localStorage.getItem('cart-items')
   let cartItemsArray = JSON.parse(cartItems!)
-  let shipping = localStorage.getItem('has-shipping') || ''
+  let shipping = localStorage.getItem('has-shipping') || null
 
   const [productItems, setProductItems] = useState(cartItemsArray || [])
   
@@ -59,7 +73,7 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
     }
   }
   
-  const handleAddToCart = (id: string, product: ProductType[]) => {
+  const handleAddToCart = (id: string, product: typeof ProductTypes[]) => {
     let cartItems = localStorage.getItem('cart-items');
     
     if(cartItems) {
@@ -107,7 +121,7 @@ export const MinicartContextProvider = ({children}: MinicartProviderProps) => {
   }
 
   const hasShipping = () => {
-    const shippingAvailable = cartItems && cartItemsArray.some((product: ProductInCart) => Number(product.selling_price) > 30);
+    const shippingAvailable = cartItems && cartItemsArray.some((product: typeof ProductInCart) => Number(product.selling_price) > 30);
   
     shippingAvailable ? localStorage.setItem('has-shipping', '12.00')
     : localStorage.removeItem('has-shipping');

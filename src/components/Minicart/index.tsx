@@ -52,7 +52,7 @@ export const Minicart = () => {
           </h2>
           <div className="minicart-content">
             <ul className="minicart-products-list">
-              {cartItemsArray.map((product: ProductInCart) => (
+              {cartItemsArray.map((product: typeof ProductInCart) => (
                 <li className="product-container__item" key={product.id}>
                 <img 
                   src={product.img} 
