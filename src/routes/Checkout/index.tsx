@@ -33,7 +33,7 @@ export const Checkout = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {cartItemsArray.map((product: ProductInCart) => (
+                        {cartItemsArray.map((product: typeof ProductInCart) => (
                           <tr key={product.id}>
                           <td>
                             <div className="product-item-container">
@@ -72,7 +72,7 @@ export const Checkout = () => {
                       </tbody>
                   </table>
                   <div className="checkout-mobile">
-                    { cartItemsArray.map((product: ProductInCart) => (
+                    { cartItemsArray.map((product: typeof ProductInCart) => (
                       <div className="product-container" key={product.id}>
                         <div className="product-image-and-info">
                           <img 
