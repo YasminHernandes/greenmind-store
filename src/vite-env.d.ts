@@ -2,6 +2,7 @@
 declare module "@/assets/*";
 declare module "@/components";
 declare module "@/components/*";
+declare module "@/contexts";
 declare module "@/contexts/*";
 declare module "@/hooks/*";
 declare module "@/layouts/*";
