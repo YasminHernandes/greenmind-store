@@ -5,14 +5,14 @@
   background: $color-primary-default;
   
   .footer-wrapper {
-    padding: 3rem 1rem !important;
+    padding: 3rem 6rem;
     
-    @media screen and (min-width: 1024px) and (max-width: 1440px) {
-      padding: 3rem !important;
+    @media screen and (max-width: $breakpoint-tablet-max) {
+      padding: 3rem 1rem;
     }
 
     @media screen and (max-width: $breakpoint-mobile-max) {
-      padding: 1.5rem !important;
+      padding: 1.5rem;
     }
 
     .footer-top-line {
