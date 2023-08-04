@@ -1,6 +1,6 @@
 import './styles.scss'
 import { useNavigate } from "react-router-dom"
-import { ArrowNavigate } from "@/components/icons/arrowNavigate"
+import { ArrowNavigate } from "@/components/icons"
 
 
 export const BackButton = () => {
