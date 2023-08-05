@@ -1,6 +1,6 @@
 import './styles.scss'
 
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { AddToCart } from '@/components'
 
 
@@ -16,20 +16,15 @@ type Props = {
 }
 
 export const ProductCard = (props: Props) => {
-  const navigate = useNavigate()
-
-  const handleNavigate = () => {
-    navigate(`/products/${props.id}`)
-  }
-
 
   return (
     <>
       <div className="product-card-container">
-        <div 
+        <Link 
+          to={`/products/${props.id}`}
+          reloadDocument
           className="product-card" 
           id={props.id}
-          onClick={handleNavigate}
         >
           <div className={`tag ${props.soldOut}`}>
             Sold out
@@ -56,7 +51,7 @@ export const ProductCard = (props: Props) => {
               {props.sellingPrice ? `$ ${props.sellingPrice}` : ""}
             </span>
           </div>
-        </div>
+        </Link>
         {props.hasButton && (
           <AddToCart id={props.id}/>
         )}
