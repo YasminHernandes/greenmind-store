@@ -10,7 +10,7 @@
   .cartegory__image {
     border-radius: 50%;
 
-    @media screen and (max-width: $breakpoint-tablet-max) {
+    @media screen and (max-width: $breakpoint-mobile-max) {
       width: 130px;
       height: 130px;
     }

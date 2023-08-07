@@ -3,6 +3,10 @@
 .footer {
   width: 100%;
   background: $color-primary-default;
+
+  @media screen and (min-width: $breakpoint-mobile-max) and (max-width: 1439.98px)  {
+    padding: 3rem 0 !important;
+  }
   
   .footer-wrapper {
     padding: 3rem 6rem;
@@ -13,7 +17,7 @@
 
     @media screen and (max-width: $breakpoint-mobile-max) {
       padding: 1.5rem;
-    }
+    }  
 
     .footer-top-line {
       display: flex;

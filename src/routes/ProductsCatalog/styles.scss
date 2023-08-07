@@ -435,7 +435,7 @@
           right: 40px;
         }
 
-        @media screen and (max-width: $breakpoint-mobile-max) {
+        @media screen and (max-width: $breakpoint-tablet-max) {
           display: none;
         }
       }
@@ -457,7 +457,7 @@
           }
         }
 
-        @media screen and (max-width: $breakpoint-mobile-max){
+        @media screen and (max-width: $breakpoint-tablet-max){
           position: absolute;
           left: -40px;
           bottom: -160px;

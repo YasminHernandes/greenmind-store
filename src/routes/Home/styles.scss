@@ -139,11 +139,13 @@
       svg {
         height: max-content;
       }
-      @media screen and (max-width: $breakpoint-mobile-max) {
-        width: 65%;
+
+      @media screen and (max-width: $breakpoint-tablet-max) {
+        width: 80%;
+        right: -20px;
       }
-      @media screen and (max-width: 425px) {
-        width: 60%;
+      @media screen and (max-width: $breakpoint-mobile-max) {
+        display: none !important;
       }
     }
     @media screen and (max-width: $breakpoint-mobile-max) {
